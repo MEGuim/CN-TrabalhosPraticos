@@ -26,13 +26,18 @@ public class TorreEspera extends CyclicBehaviour {
         ACLMessage msg = this.tc.receive();
         
         if(msg != null){
-            System.out.println("Recebi uma mensagem de "+msg.getSender()+". Contéudo: "+msg.getContent());
-            ACLMessage rsp = msg.createReply();
-            if(msg.getPerformative() == ACLMessage.REQUEST){
-                rsp.setContent("Recebi o pedido");
-                rsp.setPerformative(ACLMessage.INFORM);
+            if(msg.getSender().equals("facts")){
+                
             }
-            this.tc.send(rsp);
+            else{
+                System.out.println("Recebi uma mensagem de "+msg.getSender()+". Contéudo: "+msg.getContent());
+                ACLMessage rsp = msg.createReply();
+                if(msg.getPerformative() == ACLMessage.REQUEST){
+                    rsp.setContent("Recebi o pedido");
+                    rsp.setPerformative(ACLMessage.INFORM);
+                }
+                this.tc.send(rsp);
+            }
         }
         block();
         

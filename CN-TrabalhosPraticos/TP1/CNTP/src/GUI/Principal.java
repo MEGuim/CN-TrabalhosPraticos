@@ -65,7 +65,7 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        speculative = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaAirplanes = new javax.swing.JList<>();
@@ -83,9 +83,9 @@ public class Principal extends javax.swing.JFrame {
         setTitle("Airplane Departures Decision Support System");
         getContentPane().setLayout(null);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        speculative.setColumns(20);
+        speculative.setRows(5);
+        jScrollPane1.setViewportView(speculative);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(40, 330, 780, 160);
@@ -248,9 +248,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JList<String> listaAirplanes;
     private javax.swing.JTextField nameAirplane;
+    public javax.swing.JTextArea speculative;
     // End of variables declaration//GEN-END:variables
 
 private void setIcon() {
