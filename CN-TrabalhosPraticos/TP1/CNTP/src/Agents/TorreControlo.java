@@ -79,15 +79,15 @@ public class TorreControlo extends GuiAgent {
     
     public void startProlog(){
         Term arg[] = {new Atom("question1")};
-        p.speculative.setText("(TorreControlo) Initialize the Speculative Computation");
-        Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/PEDRO/Desktop/CN/TP1/git/tp1cn/spc_componentv3.pl")});
+        p.imprimeText("(TorreControlo) Initialize the Speculative Computation");
+        Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/PEDRO/Desktop/CN/TP1/git/tp1cn/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
         q1.hasSolution();
         
-        p.speculative.setText("(TorreContro) Loading the aircontrol case of study");
+        p.imprimeText("(TorreContro) Loading the aircontrol case of study");
         Query q2 = new Query("load");
         q2.hasSolution();
         
-        p.speculative.setText("(TorreControlo) Initializing the belief set");
+        p.imprimeText("(TorreControlo) Initializing the belief set");
         Query q3 = new Query("init");
         q3.open();
         q3.getSolution();
@@ -95,8 +95,8 @@ public class TorreControlo extends GuiAgent {
         
         Query q4 = new Query("listing",new Term[]{new Atom("cbs")});
         q4.open();
-        p.speculative.setText("(TorreControlo) The current belief set is:");
-        p.speculative.setText(q4.getSolution().toString());
+        p.imprimeText("(TorreControlo) The current belief set is:");
+        p.imprimeText(q4.getSolution().toString());
         q4.close();
         
         
@@ -104,22 +104,23 @@ public class TorreControlo extends GuiAgent {
         
         Map<String,Term> s1 = q5.oneSolution();
         if(!s1.isEmpty()){
-            p.speculative.setText("(TorreControlo) Calculating the next action in the aircontrol process...");
-            p.speculative.setText("(TorreControlo) The alternative action is");
-            p.speculative.setText(s1.get("List").toString());
+            p.imprimeText("(TorreControlo) Calculating the next action in the aircontrol process...");
+            p.imprimeText("(TorreControlo) The alternative action is");
+            p.imprimeText(s1.get("List").toString());
         }
         
         Query q6 = new Query("listing",new Term[]{new Atom("active")});
         q6.open();
-        p.speculative.setText("(TorreControlo) The set of active processes is");
-        p.speculative.setText(q6.getSolution().toString());
+        p.imprimeText("(TorreControlo) The set of active processes is");
+        p.imprimeText(q6.getSolution().toString());
         q6.close();
         
         Query q7 = new Query("listing",new Term[]{new Atom("suspended")});
         q7.open();
-        p.speculative.setText("(TorreControlo) The set of suspended processes is");
-        p.speculative.setText(q7.getSolution().toString());
-        q7.close();
+        p.imprimeText("(TorreControlo) The set of suspended processes is");
+        p.imprimeText(q7.getSolution().toString());
+        q7.close(); 
+       
         
     }
     
@@ -132,12 +133,13 @@ public class TorreControlo extends GuiAgent {
             AgentController ac = cc.createNewAgent(nome, Airplane.class.getName(), null);
             ac.start();
             p.avisaPositivo(nome);
-            this.startProlog();
         }
        
         else{
             p.avisa();
         }
+        
+         
     }
 
     

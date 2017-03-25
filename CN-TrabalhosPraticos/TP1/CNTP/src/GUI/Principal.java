@@ -38,6 +38,11 @@ public class Principal extends javax.swing.JFrame {
         
     }
     
+    public void imprimeText(String s){
+        this.speculative.append(s);
+        this.speculative.append("\n");
+    }
+    
     public void povoaAvioes(){
         ArrayList<String> ec = (ArrayList<String>) myAgent.daAviao(airp);
         DefaultListModel list =  new DefaultListModel();
@@ -250,7 +255,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listaAirplanes;
     private javax.swing.JTextField nameAirplane;
-    public javax.swing.JTextArea speculative;
+    private javax.swing.JTextArea speculative;
     // End of variables declaration//GEN-END:variables
 
 private void setIcon() {

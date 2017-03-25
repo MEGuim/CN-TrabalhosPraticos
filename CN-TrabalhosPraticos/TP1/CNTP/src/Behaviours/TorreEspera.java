@@ -37,6 +37,7 @@ public class TorreEspera extends CyclicBehaviour {
                     rsp.setPerformative(ACLMessage.INFORM);
                 }
                 this.tc.send(rsp);
+                this.tc.startProlog();
             }
         }
         block();
