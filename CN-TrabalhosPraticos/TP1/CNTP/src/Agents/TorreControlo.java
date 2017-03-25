@@ -78,6 +78,9 @@ public class TorreControlo extends GuiAgent {
     }
     
     public void startProlog(){
+        
+        //this.current_values = initial_query_result.getList_variable();
+        
         Term arg[] = {new Atom("question1")};
         p.imprimeText("(TorreControlo) Initialize the Speculative Computation");
         Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/PEDRO/Desktop/CN/TP1/git/tp1cn/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
@@ -86,7 +89,7 @@ public class TorreControlo extends GuiAgent {
         p.imprimeText("(TorreContro) Loading the aircontrol case of study");
         Query q2 = new Query("load");
         q2.hasSolution();
-        
+           
         p.imprimeText("(TorreControlo) Initializing the belief set");
         Query q3 = new Query("init");
         q3.open();
@@ -101,12 +104,13 @@ public class TorreControlo extends GuiAgent {
         
         
         Query q5 = new Query("query",new Compound("next",arg));
-        
         Map<String,Term> s1 = q5.oneSolution();
+        
         if(!s1.isEmpty()){
             p.imprimeText("(TorreControlo) Calculating the next action in the aircontrol process...");
             p.imprimeText("(TorreControlo) The alternative action is");
             p.imprimeText(s1.get("List").toString());
+            
         }
         
         Query q6 = new Query("listing",new Term[]{new Atom("active")});
