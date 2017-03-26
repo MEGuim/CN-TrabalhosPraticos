@@ -216,7 +216,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="fact">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -235,18 +235,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel6" min="-2" pref="98" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" max="32767" attributes="0"/>
-                      <Component id="jLabel8" min="-2" pref="122" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" alignment="0" pref="156" max="32767" attributes="0"/>
-                      <Component id="jLabel9" min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="jComboBox3" alignment="0" max="32767" attributes="0"/>
+                      <Component id="metlabel" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="met" max="32767" attributes="0"/>
+                      <Component id="oculabel" min="-2" pref="122" max="-2" attributes="0"/>
+                      <Component id="ocup" alignment="0" pref="156" max="32767" attributes="0"/>
+                      <Component id="priorilabel" min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="priori" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="102" max="32767" attributes="0"/>
-                  <Component id="jButton3" min="-2" pref="136" max="-2" attributes="0"/>
+                  <Component id="factArrival" min="-2" pref="136" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -255,37 +255,38 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <Component id="metlabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                  <Component id="met" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                  <Component id="oculabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                  <Component id="ocup" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                  <Component id="priorilabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
+                  <Component id="priori" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="factArrival" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="metlabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Meteorology"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="met">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="t0 - Good(default)"/>
-                <StringItem index="1" value="t1 - Moderate"/>
-                <StringItem index="2" value="t2 - Bad"/>
+              <StringArray count="4">
+                <StringItem index="0" value="--------"/>
+                <StringItem index="1" value="t0"/>
+                <StringItem index="2" value="t1"/>
+                <StringItem index="3" value="t2"/>
               </StringArray>
             </Property>
           </Properties>
@@ -293,35 +294,40 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
+        <Component class="javax.swing.JLabel" name="oculabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Track Occupation"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="ocup">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="o1 - Free runway(default)"/>
-                <StringItem index="1" value="o2 -Busy track"/>
+              <StringArray count="3">
+                <StringItem index="0" value="--------"/>
+                <StringItem index="1" value="o1"/>
+                <StringItem index="2" value="o2"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ocupActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
+        <Component class="javax.swing.JLabel" name="priorilabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Priority"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
+        <Component class="javax.swing.JComboBox" name="priori">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="p0 - With priority(default)"/>
-                <StringItem index="1" value="p1 - Without priority"/>
+              <StringArray count="3">
+                <StringItem index="0" value="--------"/>
+                <StringItem index="1" value="p0"/>
+                <StringItem index="2" value="p1"/>
               </StringArray>
             </Property>
           </Properties>
@@ -329,10 +335,13 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="factArrival">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fact Arrival"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="factArrivalActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

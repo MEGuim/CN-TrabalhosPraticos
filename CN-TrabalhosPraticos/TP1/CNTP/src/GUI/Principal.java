@@ -9,6 +9,7 @@ import Agents.TorreControlo;
 import jade.gui.GuiEvent;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -27,6 +28,14 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         setIcon();
+        this.fact.setEnabled(false);
+        this.metlabel.setEnabled(false);
+        this.oculabel.setEnabled(false);
+        this.priorilabel.setEnabled(false);
+        this.met.setEnabled(false);
+        this.ocup.setEnabled(false);
+        this.priori.setEnabled(false);
+        this.factArrival.setEnabled(false);
 
     }
     
@@ -35,12 +44,26 @@ public class Principal extends javax.swing.JFrame {
         setIcon();
         this.myAgent = t;
         //povoaAvioes();
-        
+        this.fact.setEnabled(false);
+        this.metlabel.setEnabled(false);
+        this.oculabel.setEnabled(false);
+        this.priorilabel.setEnabled(false);
+        this.met.setEnabled(false);
+        this.ocup.setEnabled(false);
+        this.priori.setEnabled(false);
+        this.factArrival.setEnabled(false);
     }
     
     public void imprimeText(String s){
         this.speculative.append(s);
         this.speculative.append("\n");
+    }
+    
+    public void imprimeList(List<String> s){
+        for(String st: s){
+            this.speculative.append(st);
+            this.speculative.append("\n");
+        }
     }
     
     public void povoaAvioes(){
@@ -82,14 +105,14 @@ public class Principal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         nameAirplane = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        fact = new javax.swing.JPanel();
+        metlabel = new javax.swing.JLabel();
+        met = new javax.swing.JComboBox<>();
+        oculabel = new javax.swing.JLabel();
+        ocup = new javax.swing.JComboBox<>();
+        priorilabel = new javax.swing.JLabel();
+        priori = new javax.swing.JComboBox<>();
+        factArrival = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -187,62 +210,72 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(370, 100, 210, 140);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Fact Arrival"));
+        fact.setBorder(javax.swing.BorderFactory.createTitledBorder("Fact Arrival"));
 
-        jLabel6.setText("Meteorology");
+        metlabel.setText("Meteorology");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "t0 - Good(default)", "t1 - Moderate", "t2 - Bad" }));
+        met.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "t0", "t1", "t2" }));
 
-        jLabel8.setText("Track Occupation");
+        oculabel.setText("Track Occupation");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "o1 - Free runway(default)", "o2 -Busy track" }));
+        ocup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "o1", "o2" }));
+        ocup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ocupActionPerformed(evt);
+            }
+        });
 
-        jLabel9.setText("Priority");
+        priorilabel.setText("Priority");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "p0 - With priority(default)", "p1 - Without priority" }));
+        priori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "p0", "p1" }));
 
-        jButton3.setText("Fact Arrival");
+        factArrival.setText("Fact Arrival");
+        factArrival.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                factArrivalActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, 0, 156, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout factLayout = new javax.swing.GroupLayout(fact);
+        fact.setLayout(factLayout);
+        factLayout.setHorizontalGroup(
+            factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(factLayout.createSequentialGroup()
+                .addGroup(factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(metlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(met, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(oculabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ocup, 0, 156, Short.MAX_VALUE)
+                    .addComponent(priorilabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, factLayout.createSequentialGroup()
                 .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(factArrival, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        factLayout.setVerticalGroup(
+            factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(factLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jLabel6)
+                .addComponent(metlabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(met, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
+                .addComponent(oculabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ocup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
+                .addComponent(priorilabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(factArrival)
                 .addGap(0, 39, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(660, 190, 260, 260);
+        getContentPane().add(fact);
+        fact.setBounds(660, 190, 260, 260);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/22137-airplane-in-the-sunset-1680x1050-aircraft-wallpaper-1024x616.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -260,6 +293,14 @@ public class Principal extends javax.swing.JFrame {
             this.myAgent.postGuiEvent(ge);
             String name = nameAirplane.getText();
             nameAirplane.setText("");
+            this.fact.setEnabled(true);
+            this.metlabel.setEnabled(true);
+            this.oculabel.setEnabled(true);
+            this.priorilabel.setEnabled(true);
+            this.met.setEnabled(true);
+            this.ocup.setEnabled(true);
+            this.priori.setEnabled(true);
+            this.factArrival.setEnabled(true);
         //}else{
           //  JOptionPane.showMessageDialog(null, "Não inseriu nome!");
         //}
@@ -274,6 +315,33 @@ public class Principal extends javax.swing.JFrame {
     private void nameAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameAirplaneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameAirplaneActionPerformed
+
+    private void ocupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ocupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ocupActionPerformed
+
+    private void factArrivalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_factArrivalActionPerformed
+        // TODO add your handling code here:
+        if(!met.getSelectedItem().equals("--------")){
+            GuiEvent ge = new GuiEvent("informacao:"+met.getSelectedItem().toString(),1);
+            System.out.println("informacao:"+met.getSelectedItem());
+            this.myAgent.postGuiEvent(ge);
+        }
+        else if(!ocup.getSelectedItem().equals("--------")){
+            GuiEvent ge = new GuiEvent("informacao:"+ocup.getSelectedItem().toString(),1);
+            System.out.println("informacao:"+ocup.getSelectedItem());
+            this.myAgent.postGuiEvent(ge);
+        }
+        else if(!priori.getSelectedItem().equals("--------")){
+            GuiEvent ge = new GuiEvent("informacao:"+priori.getSelectedItem().toString(),1);
+            System.out.println("informacao:"+priori.getSelectedItem());
+            this.myAgent.postGuiEvent(ge);
+        }else if((met.getSelectedItem().equals("--------"))&&(ocup.getSelectedItem().equals("--------"))&&(priori.getSelectedItem().equals("--------"))){
+            JOptionPane.showMessageDialog(null, "Não selecionou nenhuma chegada de facto");
+        }else if((met.getSelectedItem().equals("--------"))||(ocup.getSelectedItem().equals("--------"))||(priori.getSelectedItem().equals("--------"))){
+            JOptionPane.showMessageDialog(null, "Selecione apenas uma fonte de informação para a chegada de facto");
+        }
+    }//GEN-LAST:event_factArrivalActionPerformed
     
     /**
      * @param args the command line arguments
@@ -311,27 +379,27 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel fact;
+    private javax.swing.JButton factArrival;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listaAirplanes;
+    private javax.swing.JComboBox<String> met;
+    private javax.swing.JLabel metlabel;
     private javax.swing.JTextField nameAirplane;
+    private javax.swing.JLabel oculabel;
+    private javax.swing.JComboBox<String> ocup;
+    private javax.swing.JComboBox<String> priori;
+    private javax.swing.JLabel priorilabel;
     private javax.swing.JTextArea speculative;
     // End of variables declaration//GEN-END:variables
 
