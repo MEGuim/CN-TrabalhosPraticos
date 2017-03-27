@@ -28,6 +28,8 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         setIcon();
+        
+        //fact arrival
         this.fact.setEnabled(false);
         this.metlabel.setEnabled(false);
         this.oculabel.setEnabled(false);
@@ -36,6 +38,16 @@ public class Principal extends javax.swing.JFrame {
         this.ocup.setEnabled(false);
         this.priori.setEnabled(false);
         this.factArrival.setEnabled(false);
+        
+        //default revision
+        this.defa.setEnabled(false);
+        this.metlabeldef.setEnabled(false);
+        this.ocuplabeldef.setEnabled(false);
+        this.priorilabeldef.setEnabled(false);
+        this.metdef.setEnabled(false);
+        this.ocupdef.setEnabled(false);
+        this.prioridef.setEnabled(false);
+        this.defaultRevision.setEnabled(false);
 
     }
     
@@ -44,6 +56,8 @@ public class Principal extends javax.swing.JFrame {
         setIcon();
         this.myAgent = t;
         //povoaAvioes();
+        
+        //fact arrival
         this.fact.setEnabled(false);
         this.metlabel.setEnabled(false);
         this.oculabel.setEnabled(false);
@@ -52,6 +66,16 @@ public class Principal extends javax.swing.JFrame {
         this.ocup.setEnabled(false);
         this.priori.setEnabled(false);
         this.factArrival.setEnabled(false);
+        
+        //default revision
+        this.defa.setEnabled(false);
+        this.metlabeldef.setEnabled(false);
+        this.ocuplabeldef.setEnabled(false);
+        this.priorilabeldef.setEnabled(false);
+        this.metdef.setEnabled(false);
+        this.ocupdef.setEnabled(false);
+        this.prioridef.setEnabled(false);
+        this.defaultRevision.setEnabled(false);
     }
     
     public void imprimeText(String s){
@@ -113,6 +137,14 @@ public class Principal extends javax.swing.JFrame {
         priorilabel = new javax.swing.JLabel();
         priori = new javax.swing.JComboBox<>();
         factArrival = new javax.swing.JButton();
+        defa = new javax.swing.JPanel();
+        metlabeldef = new javax.swing.JLabel();
+        metdef = new javax.swing.JComboBox<>();
+        ocuplabeldef = new javax.swing.JLabel();
+        ocupdef = new javax.swing.JComboBox<>();
+        priorilabeldef = new javax.swing.JLabel();
+        prioridef = new javax.swing.JComboBox<>();
+        defaultRevision = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -124,7 +156,7 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(speculative);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 290, 550, 160);
+        jScrollPane1.setBounds(30, 310, 550, 160);
 
         jButton1.setText("Exit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +188,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Speculativa Departures");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 260, 550, 20);
+        jLabel4.setBounds(30, 280, 550, 20);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/logo.png"))); // NOI18N
         getContentPane().add(jLabel5);
@@ -208,7 +240,7 @@ public class Principal extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(370, 100, 210, 140);
+        jPanel1.setBounds(280, 100, 210, 140);
 
         fact.setBorder(javax.swing.BorderFactory.createTitledBorder("Fact Arrival"));
 
@@ -241,18 +273,16 @@ public class Principal extends javax.swing.JFrame {
         factLayout.setHorizontalGroup(
             factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(factLayout.createSequentialGroup()
-                .addGroup(factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(metlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(met, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(oculabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ocup, 0, 156, Short.MAX_VALUE)
                     .addComponent(priorilabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, factLayout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(factArrival, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(met, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(factArrival, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                        .addComponent(priori, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ocup, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 36, Short.MAX_VALUE))
         );
         factLayout.setVerticalGroup(
             factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,19 +299,78 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(priorilabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(priori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(factArrival)
-                .addGap(0, 39, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         getContentPane().add(fact);
-        fact.setBounds(660, 190, 260, 260);
+        fact.setBounds(610, 210, 170, 250);
+
+        defa.setBorder(javax.swing.BorderFactory.createTitledBorder("Default Revision"));
+
+        metlabeldef.setText("Meteorology");
+
+        metdef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "t0", "t1t2" }));
+
+        ocuplabeldef.setText("Track Occupation");
+
+        ocupdef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "o1", "o2" }));
+
+        priorilabeldef.setText("Priority");
+
+        prioridef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "p0", "p1" }));
+
+        defaultRevision.setText("Default Revision");
+        defaultRevision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defaultRevisionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout defaLayout = new javax.swing.GroupLayout(defa);
+        defa.setLayout(defaLayout);
+        defaLayout.setHorizontalGroup(
+            defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(defaLayout.createSequentialGroup()
+                .addGroup(defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(metlabeldef, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(metdef, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ocuplabeldef)
+                        .addComponent(ocupdef, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(priorilabeldef, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(prioridef, 0, 105, Short.MAX_VALUE))
+                    .addComponent(defaultRevision))
+                .addGap(0, 57, Short.MAX_VALUE))
+        );
+        defaLayout.setVerticalGroup(
+            defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(defaLayout.createSequentialGroup()
+                .addComponent(metlabeldef, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(metdef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ocuplabeldef)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ocupdef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(priorilabeldef)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prioridef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(defaultRevision)
+                .addGap(0, 21, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(defa);
+        defa.setBounds(820, 210, 180, 250);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/22137-airplane-in-the-sunset-1680x1050-aircraft-wallpaper-1024x616.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, -10, 940, 570);
+        jLabel2.setBounds(0, -10, 1020, 570);
 
-        setBounds(0, 0, 954, 598);
+        setBounds(0, 0, 1034, 598);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -293,6 +382,7 @@ public class Principal extends javax.swing.JFrame {
             this.myAgent.postGuiEvent(ge);
             String name = nameAirplane.getText();
             nameAirplane.setText("");
+            //fact arrival
             this.fact.setEnabled(true);
             this.metlabel.setEnabled(true);
             this.oculabel.setEnabled(true);
@@ -301,6 +391,15 @@ public class Principal extends javax.swing.JFrame {
             this.ocup.setEnabled(true);
             this.priori.setEnabled(true);
             this.factArrival.setEnabled(true);
+            //default revision
+            this.defa.setEnabled(true);
+            this.metlabeldef.setEnabled(true);
+            this.ocuplabeldef.setEnabled(true);
+            this.priorilabeldef.setEnabled(true);
+            this.metdef.setEnabled(true);
+            this.ocupdef.setEnabled(true);
+            this.prioridef.setEnabled(true);
+            this.defaultRevision.setEnabled(true);
         //}else{
           //  JOptionPane.showMessageDialog(null, "Não inseriu nome!");
         //}
@@ -342,6 +441,28 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione apenas uma fonte de informação para a chegada de facto");
         }
     }//GEN-LAST:event_factArrivalActionPerformed
+
+    
+    private void defaultRevisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultRevisionActionPerformed
+        // TODO add your handling code here:
+        //if((metdef.getSelectedItem().equals("--------"))&&(ocupdef.getSelectedItem().equals("--------"))&&(prioridef.getSelectedItem().equals("--------"))){
+          //  JOptionPane.showMessageDialog(null, "Não selecionou nenhuma revisãod dos valores por defeito");
+        //}else if((metdef.getSelectedItem().equals("--------"))||(ocupdef.getSelectedItem().equals("--------"))||(prioridef.getSelectedItem().equals("--------"))){
+          //  JOptionPane.showMessageDialog(null, "Selecione apenas uma revisão dos valores por defeito");
+         if(!metdef.getSelectedItem().equals("--------")){
+            GuiEvent ge = new GuiEvent("revisao:"+metdef.getSelectedItem().toString(),1);
+            System.out.println("revisao:"+metdef.getSelectedItem());
+            this.myAgent.postGuiEvent(ge);
+        }else if(!ocupdef.getSelectedItem().equals("--------")){
+            GuiEvent ge = new GuiEvent("revisao:"+ocupdef.getSelectedItem().toString(),1);
+            System.out.println("revisao:"+ocupdef.getSelectedItem());
+            this.myAgent.postGuiEvent(ge);
+        }else if(!priori.getSelectedItem().equals("--------")){
+            GuiEvent ge = new GuiEvent("revisao:"+prioridef.getSelectedItem().toString(),1);
+            System.out.println("informacao:"+prioridef.getSelectedItem());
+            this.myAgent.postGuiEvent(ge);
+        }
+    }//GEN-LAST:event_defaultRevisionActionPerformed
     
     /**
      * @param args the command line arguments
@@ -379,6 +500,8 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel defa;
+    private javax.swing.JButton defaultRevision;
     private javax.swing.JPanel fact;
     private javax.swing.JButton factArrival;
     private javax.swing.JButton jButton1;
@@ -394,12 +517,18 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listaAirplanes;
     private javax.swing.JComboBox<String> met;
+    private javax.swing.JComboBox<String> metdef;
     private javax.swing.JLabel metlabel;
+    private javax.swing.JLabel metlabeldef;
     private javax.swing.JTextField nameAirplane;
     private javax.swing.JLabel oculabel;
     private javax.swing.JComboBox<String> ocup;
+    private javax.swing.JComboBox<String> ocupdef;
+    private javax.swing.JLabel ocuplabeldef;
     private javax.swing.JComboBox<String> priori;
+    private javax.swing.JComboBox<String> prioridef;
     private javax.swing.JLabel priorilabel;
+    private javax.swing.JLabel priorilabeldef;
     private javax.swing.JTextArea speculative;
     // End of variables declaration//GEN-END:variables
 

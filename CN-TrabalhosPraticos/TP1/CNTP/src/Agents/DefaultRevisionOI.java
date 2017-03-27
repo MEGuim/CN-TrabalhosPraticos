@@ -5,31 +5,23 @@
  */
 package Agents;
 
-import Behaviours.InformacaoMI;
+import Behaviours.DefaultOI;
 import jade.core.Agent;
-import java.util.ArrayList;
 
 /**
  *
  * @author PEDRO
  */
-public class FonteInformacaoMI extends Agent{
-    
-    //private String s;
-   
-    
-    
-    @Override
+public class DefaultRevisionOI extends Agent {
+     @Override
     protected void setup(){
-        System.out.println("Fonte de Informação @mi a começar...");
+        System.out.println("Agente Default Revision @oi a começar...");
         super.setup();
-        this.addBehaviour(new InformacaoMI(this));
+        this.addBehaviour(new DefaultOI(this));
     }
     
-    @Override
     public void takeDown(){
         super.takeDown();
-        System.out.println("Fonte de Informação @mi a terminar...");
+        System.out.println("Agente Default Revision @oi a terminar...");
     }
-    
 }

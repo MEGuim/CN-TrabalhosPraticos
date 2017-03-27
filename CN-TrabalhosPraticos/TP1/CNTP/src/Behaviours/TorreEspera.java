@@ -26,8 +26,37 @@ public class TorreEspera extends CyclicBehaviour {
         ACLMessage msg = this.tc.receive();
         
         if(msg != null){
-            if(msg.getSender().equals("facts")){
-                
+            if(msg.getPerformative() == ACLMessage.CONFIRM){
+                if(msg.getSender().getLocalName().matches("t.+")){
+                    System.out.println(msg.getContent());
+                    //System.out.println(msg.getSender().getLocalName());
+                    this.tc.startFactArrivalMI(msg.getSender().getLocalName());
+                }
+                else if(msg.getSender().getLocalName().matches("o.+")){
+                    System.out.println(msg.getContent());
+                    this.tc.startFactArrivalOI(msg.getSender().getLocalName());
+                    
+                }
+                else if(msg.getSender().getLocalName().matches("p.+")){
+                    System.out.println(msg.getContent());
+                    this.tc.startFactArrivalPI(msg.getSender().getLocalName());
+                    
+                }
+                        
+            }
+            else if(msg.getPerformative()== ACLMessage.INFORM){
+                if(msg.getSender().getLocalName().matches("t.+")){
+                    System.out.println(msg.getContent());
+                    this.tc.revisionMI(msg.getSender().getLocalName());
+                }
+                else if(msg.getSender().getLocalName().matches("o.+")){
+                    System.out.println(msg.getContent());
+                    this.tc.revisionOI(msg.getSender().getLocalName());
+                }
+                else if(msg.getSender().getLocalName().matches("p.+")){
+                    System.out.println(msg.getContent());
+                    this.tc.revisionPI(msg.getSender().getLocalName());
+                }
             }
             else{
                 System.out.println("Recebi uma mensagem de "+msg.getSender()+". Contéudo: "+msg.getContent());
@@ -35,9 +64,11 @@ public class TorreEspera extends CyclicBehaviour {
                 if(msg.getPerformative() == ACLMessage.REQUEST){
                     rsp.setContent("Recebi o pedido");
                     rsp.setPerformative(ACLMessage.INFORM);
+                    this.tc.send(rsp);
+                    this.tc.startProlog();
                 }
-                this.tc.send(rsp);
-                this.tc.startProlog();
+                //this.tc.send(rsp);
+                //this.tc.startProlog();
             }
         }
         block();

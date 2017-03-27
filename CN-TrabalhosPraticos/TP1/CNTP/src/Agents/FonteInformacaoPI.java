@@ -5,6 +5,7 @@
  */
 package Agents;
 
+import Behaviours.InformacaoPI;
 import jade.core.Agent;
 
 /**
@@ -16,11 +17,11 @@ public class FonteInformacaoPI extends Agent{
     protected void setup(){
         System.out.println("Fonte de Informação @pi a começar...");
         super.setup();
-        //this.addBehaviour(new InformacaoMI(this));
+        this.addBehaviour(new InformacaoPI(this));
     }
     
     @Override
-    protected void takeDown(){
+    public void takeDown(){
         super.takeDown();
         System.out.println("Fonte de Informação @pi a terminar...");
     }
