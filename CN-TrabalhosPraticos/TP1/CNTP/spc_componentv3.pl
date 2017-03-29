@@ -731,7 +731,14 @@ init :-
 		
 load :-
 		[aircontrol].
+
 		
+list_items(A) :-
+	tell('MyListing.txt'),
+	listing(A),
+	told.
+list_items(_) :- told.
+
 insert_default(Parameter,Operator,Value) :-
 											initial_default_conversion(Parameter,Operator,Value).
 

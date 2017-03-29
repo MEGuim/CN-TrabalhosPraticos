@@ -1,1 +1,1 @@
-http://DESKTOP-55MI66F.lan:7778/acc
+http://172.26.7.92:7778/acc

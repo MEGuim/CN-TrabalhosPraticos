@@ -12,7 +12,13 @@ import jade.gui.GuiEvent;
 import jade.wrapper.AgentController;
 import jade.wrapper.ContainerController;
 import jade.wrapper.StaleProxyException;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 import org.jpl7.Atom;
 import org.jpl7.Compound;
 import org.jpl7.Query;
@@ -70,12 +77,14 @@ public class TorreControlo extends GuiAgent {
     
     @Override
     protected void setup(){
+        
+        
        p = new Principal(this);
        System.out.println("Torre de Controlo a iniciar...");
        p.setVisible(true);
        super.setup();
        p.imprimeText("(TorreControlo) Initialize the Speculative Computation");
-       Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/PEDRO/Desktop/CN/TP1/git/tp1cn/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
+       Query q1 = new Query("consult",new Term[]{new Atom("C:\\Users\\NMVC\\Downloads\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos\\TP1\\CNTP/spc_componentv3.pl")});
        //System.out.println(q1.hasSolution());
        q1.hasSolution();
         
@@ -90,6 +99,8 @@ public class TorreControlo extends GuiAgent {
         q3.getSolution();
         q3.close();
        this.addBehaviour(new TorreEspera(this));
+       
+       
        
     }
     
@@ -345,38 +356,18 @@ public class TorreControlo extends GuiAgent {
     public void startProlog(){
        
         try{
+
+
             Term arg[] = {new Atom("question1")};
             
             //Variable CBS = new Variable("csb");
-            Query q4 = new Query("listing",new Term[]{new Atom("cbs")});
-            q4.open();
-            p.imprimeText("(TorreControlo) The current belief set is:");
-            //StringBuilder sb = new StringBuilder();
-            //sb.append(q4.getSolution().entrySet());
-            //String s = sb.toString();
-            //System.out.println(s);
-            //Term[] t = null;
-            //for(Map.Entry<String,Term> sol: q4.getSolution().entrySet()){
-                //System.out.println("Tenho cenas");
-                //System.out.println(sol.getValue().name());
-            //Map<String, Term>[] solution;    
-            //solution=q4.allSolutions();
-           
-            //p.imprimeText(q4.getSolution().toString());
-           	      
-            StringBuilder sb = new StringBuilder();
-            for(Map.Entry<String,Term> sol:q4.getSolution().entrySet()){
-                sb.append(sol.getKey());
-                sb.append(sol.getValue());
-                sb.append("\n");
-            }
-            String st;
-            st = sb.toString();
-            System.out.println(st);
-            p.imprimeText(st);
-            q4.close();
+            Query q4 = new Query("list_items",new Term[]{new Atom("cbs")});
+            q4.hasSolution();
 
-
+            Path path = Paths.get("C:\\Users\\NMVC\\Downloads\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos\\TP1\\CNTP\\MyListing.txt");
+            Stream<String> lines = Files.lines(path);
+            lines.forEach(s -> p.imprimeText(s));
+            
             Query q5 = new Query("query",new Compound("next",arg));
             Map<String,Term> s1 = q5.oneSolution();
 
@@ -387,23 +378,24 @@ public class TorreControlo extends GuiAgent {
 
             }
 
-            Query q6 = new Query("listing",new Term[]{new Atom("active")});
-            q6.open();
-            p.imprimeText("(TorreControlo) The set of active processes is");
-            p.imprimeText(q6.getSolution().toString());
-            q6.close();
+            Query q6 = new Query("list_items",new Term[]{new Atom("active")});
+            q6.hasSolution();
+            Path path2 = Paths.get("C:\\Users\\NMVC\\Downloads\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos\\TP1\\CNTP\\MyListing.txt");
+            Stream<String> lines2 = Files.lines(path2);
+            lines2.forEach(s -> p.imprimeText(s));
 
-            Query q7 = new Query("listing",new Term[]{new Atom("suspended")});
-            q7.open();
-            p.imprimeText("(TorreControlo) The set of suspended processes is");
-            p.imprimeText(q7.getSolution().toString());
-            q7.close(); 
+            Query q7 = new Query("list_items",new Term[]{new Atom("suspended")});
+            q7.hasSolution();
+            Path path3 = Paths.get("C:\\Users\\NMVC\\Downloads\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos\\TP1\\CNTP\\MyListing.txt");
+            Stream<String> lines3 = Files.lines(path3);
+            lines3.forEach(s -> p.imprimeText(s));
 
         }catch(SecurityException e){
             e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(TorreControlo.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        
+ 
     }
     
     private void createNewAgentT(String nome) throws StaleProxyException{
