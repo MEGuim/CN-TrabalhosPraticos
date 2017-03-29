@@ -311,7 +311,7 @@ public class Principal extends javax.swing.JFrame {
 
         metlabeldef.setText("Meteorology");
 
-        metdef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "t0", "t1t2" }));
+        metdef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "t0", "t1", "t2" }));
 
         ocuplabeldef.setText("Track Occupation");
 

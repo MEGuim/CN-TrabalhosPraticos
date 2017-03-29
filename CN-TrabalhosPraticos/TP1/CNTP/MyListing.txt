@@ -1,11 +1,6 @@
 :- dynamic suspended/2.
 
 suspended([p(A)@pi], process(10, [1, 2, 8, 9], [constraint(p(A)@pi, A, [expression(in_set([p1]), list)])], [t(_)@mi], [], [constraint(t(B)@mi, B, [expression(in_set([t0]), list)], default)], nt(question1, action2))).
-suspended([o(A)@oi], process(12, [1, 2, 8, 11], [constraint(o(A)@oi, A, [expression(in_set([o2]), list)])], [t(_)@mi], [], [constraint(t(B)@mi, B, [expression(in_set([t0]), list)], default)], nt(question1, action2))).
 suspended([t(A)@mi], process(13, [1, 2, 8], [constraint(t(A)@mi, A, [expression(in_set([t1]), list)])], [], [], [], nt(question1, action2))).
 suspended([t(A)@mi], process(15, [1, 2, 14], [constraint(t(A)@mi, A, [expression(in_set([t2]), list)])], [], [], [], nt(question1, action3))).
-suspended([p(A)@pi], process(25, [16, 17, 23, 24], [constraint(p(A)@pi, A, [expression(in_set([p1]), list)])], [t(_)@mi], [], [constraint(t(B)@mi, B, [expression(in_set([t0]), list)], default)], nt(question1, action2))).
-suspended([o(A)@oi], process(27, [16, 17, 23, 26], [constraint(o(A)@oi, A, [expression(in_set([o2]), list)])], [t(_)@mi], [], [constraint(t(B)@mi, B, [expression(in_set([t0]), list)], default)], nt(question1, action2))).
-suspended([t(A)@mi], process(28, [16, 17, 23], [constraint(t(A)@mi, A, [expression(in_set([t1]), list)])], [], [], [], nt(question1, action2))).
-suspended([t(A)@mi], process(30, [16, 17, 29], [constraint(t(A)@mi, A, [expression(in_set([t2]), list)])], [], [], [], nt(question1, action3))).
 

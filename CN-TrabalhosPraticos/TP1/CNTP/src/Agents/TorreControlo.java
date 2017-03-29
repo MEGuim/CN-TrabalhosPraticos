@@ -84,8 +84,9 @@ public class TorreControlo extends GuiAgent {
        p.setVisible(true);
        super.setup();
        p.imprimeText("(TorreControlo) Initialize the Speculative Computation");
-       Query q1 = new Query("consult",new Term[]{new Atom("C:\\Users\\NMVC\\Downloads\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos\\TP1\\CNTP/spc_componentv3.pl")});
+       Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
        //System.out.println(q1.hasSolution());
+       
        q1.hasSolution();
         
         p.imprimeText("(TorreContro) Loading the aircontrol case of study");
@@ -190,167 +191,188 @@ public class TorreControlo extends GuiAgent {
         return ap;
     }
     
-    public void revisionMI(String name){
+    public void revisionMI(String name) throws IOException{
         p.imprimeText("(TorreControlo) Asserting New Default for @mi");
         Query q41 = new Query("default_arrival",new Term[]{new Atom("t"),new Atom("mi"),new Atom("in_set"),new Atom(name)});
         q41.hasSolution();
         
-        Query q42 = new Query("listing",new Term[] {new Atom("cbs")});
-	q42.open();
+        Query q42 = new Query("list_items",new Term[] {new Atom("cbs")});
+	q42.hasSolution();
         p.imprimeText("(TorreControlo) The belief set is:");
-	p.imprimeText(q42.getSolution().toString());
-	q42.close();
+	Path path21 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines21 = Files.lines(path21);
+        lines21.forEach(s -> p.imprimeText(s));
 										
-	Query q43 = new Query("listing",new Term[] {new Atom("active")});
-        q43.open();
+	Query q43 = new Query("list_items",new Term[] {new Atom("active")});
+        q43.hasSolution();
 	p.imprimeText("(TorreControlo) The set of active processes is:");
-	p.imprimeText(q43.getSolution().toString());
-	q43.close();
+	Path path22 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines22 = Files.lines(path22);
+        lines22.forEach(s -> p.imprimeText(s));
 										
-	Query q44 = new Query("listing",new Term[] {new Atom("suspended")});
-	q44.open();
+	Query q44 = new Query("list_items",new Term[] {new Atom("suspended")});
+	q44.hasSolution();
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
-	p.imprimeText(q44.getSolution().toString());
-	q44.close();
+	Path path23 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines23 = Files.lines(path23);
+        lines23.forEach(s -> p.imprimeText(s));
     }
     
-    public void revisionPI(String name){
+    public void revisionPI(String name) throws IOException{
         p.imprimeText("(TorreControlo) Asserting New Default for @pi");
         Query q51 = new Query("default_arrival",new Term[]{new Atom("p"),new Atom("pi"),new Atom("in_set"),new Atom(name)});
         q51.hasSolution();
         
-        Query q52 = new Query("listing",new Term[] {new Atom("cbs")});
-	q52.open();
+        Query q52 = new Query("list_items",new Term[] {new Atom("cbs")});
+	q52.hasSolution();
         p.imprimeText("(TorreControlo) The belief set is:");
-	p.imprimeText(q52.getSolution().toString());
-	q52.close();
+	Path path18 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines18 = Files.lines(path18);
+        lines18.forEach(s -> p.imprimeText(s));
 										
-	Query q53 = new Query("listing",new Term[] {new Atom("active")});
-        q53.open();
+	Query q53 = new Query("list_items",new Term[] {new Atom("active")});
+        q53.hasSolution();
 	p.imprimeText("(TorreControlo) The set of active processes is:");
-	p.imprimeText(q53.getSolution().toString());
-	q53.close();
+	Path path19 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines19 = Files.lines(path19);
+        lines19.forEach(s -> p.imprimeText(s));
 										
-	Query q54 = new Query("listing",new Term[] {new Atom("suspended")});
-	q54.open();
+	Query q54 = new Query("list_items",new Term[] {new Atom("suspended")});
+	q54.hasSolution();
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
-	p.imprimeText(q54.getSolution().toString());
-	q54.close();
+	Path path20 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines20 = Files.lines(path20);
+        lines20.forEach(s -> p.imprimeText(s));
     }
     
-    public void revisionOI(String name){
+    public void revisionOI(String name) throws IOException{
         p.imprimeText("(TorreControlo) Asserting New Default for @oi");
         Query q61 = new Query("default_arrival",new Term[]{new Atom("o"),new Atom("oi"),new Atom("in_set"),new Atom(name)});
         q61.hasSolution();
         
-        Query q62 = new Query("listing",new Term[] {new Atom("cbs")});
-	q62.open();
+        Query q62 = new Query("list_items",new Term[] {new Atom("cbs")});
+	q62.hasSolution();
         p.imprimeText("(TorreControlo) The belief set is:");
-	p.imprimeText(q62.getSolution().toString());
-	q62.close();
+	Path path16 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines16 = Files.lines(path16);
+        lines16.forEach(s -> p.imprimeText(s));
 										
-	Query q63 = new Query("listing",new Term[] {new Atom("active")});
-        q63.open();
+	Query q63 = new Query("list_items",new Term[] {new Atom("active")});
+        q63.hasSolution();
 	p.imprimeText("(TorreControlo) The set of active processes is:");
-	p.imprimeText(q63.getSolution().toString());
-	q63.close();
+	Path path17 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines17 = Files.lines(path17);
+        lines17.forEach(s -> p.imprimeText(s));
 										
-	Query q64 = new Query("listing",new Term[] {new Atom("suspended")});
-	q64.open();
+	Query q64 = new Query("list_items",new Term[] {new Atom("suspended")});
+	q64.hasSolution();
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
-	p.imprimeText(q64.getSolution().toString());
-	q64.close();
+	Path path18 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines18 = Files.lines(path18);
+        lines18.forEach(s -> p.imprimeText(s));
     }
     
     
-    public void startFactArrivalPI(String name){
+    public void startFactArrivalPI(String name) throws IOException{
         p.imprimeText("(TorreControlo) Asserting Answer for @pi");
         Query q21 = new Query("answer_arrival",new Term[]{new Atom("p"),new Atom("pi"),new Atom("in_set"),new Atom(name)});
         q21.hasSolution();
         
-        Query q22 = new Query("listing",new Term[]{new Atom("answer")});
-        q22.open();
+        Query q22 = new Query("list_items",new Term[]{new Atom("answer")});
+        q22.hasSolution();
         p.imprimeText("(TorreControlo) The answer set is");
-        p.imprimeText(q22.getSolution().toString());
-        q22.close();
+        Path path15 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines15 = Files.lines(path15);
+        lines15.forEach(s -> p.imprimeText(s));
         
-        Query q23 = new Query("listing",new Term[] {new Atom("cbs")});
-	q23.open();
+        Query q23 = new Query("list_items",new Term[] {new Atom("cbs")});
+	q23.hasSolution();
 	p.imprimeText("(TorreControlo)The belief set is now:");
-	p.imprimeText(q23.getSolution().toString());
-	q23.close();
+	Path path14 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines14 = Files.lines(path14);
+        lines14.forEach(s -> p.imprimeText(s));
 					
-	Query q24 = new Query("listing",new Term[] {new Atom("active")});
-	q24.open();
+	Query q24 = new Query("list_items",new Term[] {new Atom("active")});
+	q24.hasSolution();
 	p.imprimeText("(TorreControlo)The set of active processes is:");
-	p.imprimeText(q24.getSolution().toString());
-	q24.close();
+	Path path13 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines13 = Files.lines(path13);
+        lines13.forEach(s -> p.imprimeText(s));
 					
-	Query q25 = new Query("listing",new Term[] {new Atom("suspended")});
-	q25.open();
+	Query q25 = new Query("list_items",new Term[] {new Atom("suspended")});
+	q25.hasSolution();
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
-	p.imprimeText(q25.getSolution().toString());
-	q25.close();
+	Path path12 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines12 = Files.lines(path12);
+        lines12.forEach(s -> p.imprimeText(s));
     }
     
-    public void startFactArrivalOI(String name){
+    public void startFactArrivalOI(String name) throws IOException{
         p.imprimeText("(TorreControlo) Asserting Answer for @oi");
         Query q31 = new Query("answer_arrival",new Term[]{new Atom("o"),new Atom("oi"),new Atom("in_set"),new Atom(name)});
         q31.hasSolution();
         
-        Query q32 = new Query("listing",new Term[]{new Atom("answer")});
-        q32.open();
+        Query q32 = new Query("list_items",new Term[]{new Atom("answer")});
+        q32.hasSolution();
         p.imprimeText("(TorreControlo) The answer set is");
-        p.imprimeText(q32.getSolution().toString());
-        q32.close();
+        Path path11 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines11 = Files.lines(path11);
+        lines11.forEach(s -> p.imprimeText(s));
         
-        Query q33 = new Query("listing",new Term[] {new Atom("cbs")});
-	q33.open();
+        Query q33 = new Query("list_items",new Term[] {new Atom("cbs")});
+	q33.hasSolution();
 	p.imprimeText("(TorreControlo)The belief set is now:");
-	p.imprimeText(q33.getSolution().toString());
-	q33.close();
+	Path path9 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines9 = Files.lines(path9);
+        lines9.forEach(s -> p.imprimeText(s));
 					
-	Query q34 = new Query("listing",new Term[] {new Atom("active")});
-	q34.open();
+	Query q34 = new Query("list_items",new Term[] {new Atom("active")});
+	q34.hasSolution();
 	p.imprimeText("(TorreControlo)The set of active processes is:");
-	p.imprimeText(q34.getSolution().toString());
-	q34.close();
+	Path path10 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines10 = Files.lines(path10);
+        lines10.forEach(s -> p.imprimeText(s));
 					
-	Query q35 = new Query("listing",new Term[] {new Atom("suspended")});
-	q35.open();
+	Query q35 = new Query("list_items",new Term[] {new Atom("suspended")});
+	q35.hasSolution();
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
-	p.imprimeText(q35.getSolution().toString());
-	q35.close();
+	Path path8 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines8 = Files.lines(path8);
+        lines8.forEach(s -> p.imprimeText(s));
     }
     
-    public void startFactArrivalMI(String name){
+    public void startFactArrivalMI(String name) throws IOException{
         p.imprimeText("(TorreControlo) Asserting Answer for @mi");
         Query q12 = new Query("answer_arrival",new Term[]{new Atom("t"),new Atom("mi"),new Atom("in_set"),new Atom(name)});
         q12.hasSolution();
         
-        Query q13 = new Query("listing",new Term[]{new Atom("answer")});
-        q13.open();
+        Query q13 = new Query("list_items",new Term[]{new Atom("answer")});
+        q13.hasSolution();
         p.imprimeText("(TorreControlo) The answer set is");
-        p.imprimeText(q13.getSolution().toString());
-        q13.close();
+        Path path7 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines7 = Files.lines(path7);
+        lines7.forEach(s -> p.imprimeText(s));
         
-        Query q14 = new Query("listing",new Term[] {new Atom("cbs")});
-	q14.open();
+        Query q14 = new Query("list_items",new Term[] {new Atom("cbs")});
+	q14.hasSolution();
 	p.imprimeText("(TorreControlo)The belief set is now:");
-	p.imprimeText(q14.getSolution().toString());
-	q14.close();
+	Path path6 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines6 = Files.lines(path6);
+        lines6.forEach(s -> p.imprimeText(s));
 					
-	Query q15 = new Query("listing",new Term[] {new Atom("active")});
-	q15.open();
+	Query q15 = new Query("list_items",new Term[] {new Atom("active")});
+	q15.hasSolution();
 	p.imprimeText("(TorreControlo)The set of active processes is:");
-	p.imprimeText(q15.getSolution().toString());
-	q15.close();
+	Path path5 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines5 = Files.lines(path5);
+        lines5.forEach(s -> p.imprimeText(s));
 					
-	Query q16 = new Query("listing",new Term[] {new Atom("suspended")});
-	q16.open();
+	Query q16 = new Query("list_items",new Term[] {new Atom("suspended")});
+	q16.hasSolution();
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
-	p.imprimeText(q16.getSolution().toString());
-	q16.close();
+	Path path4 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+        Stream<String> lines4 = Files.lines(path4);
+        lines4.forEach(s -> p.imprimeText(s));
     }
     
     public void startProlog(){
@@ -364,7 +386,7 @@ public class TorreControlo extends GuiAgent {
             Query q4 = new Query("list_items",new Term[]{new Atom("cbs")});
             q4.hasSolution();
 
-            Path path = Paths.get("C:\\Users\\NMVC\\Downloads\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos\\TP1\\CNTP\\MyListing.txt");
+            Path path = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
             Stream<String> lines = Files.lines(path);
             lines.forEach(s -> p.imprimeText(s));
             
@@ -380,13 +402,13 @@ public class TorreControlo extends GuiAgent {
 
             Query q6 = new Query("list_items",new Term[]{new Atom("active")});
             q6.hasSolution();
-            Path path2 = Paths.get("C:\\Users\\NMVC\\Downloads\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos\\TP1\\CNTP\\MyListing.txt");
+            Path path2 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
             Stream<String> lines2 = Files.lines(path2);
             lines2.forEach(s -> p.imprimeText(s));
 
             Query q7 = new Query("list_items",new Term[]{new Atom("suspended")});
             q7.hasSolution();
-            Path path3 = Paths.get("C:\\Users\\NMVC\\Downloads\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos-master\\CN-TrabalhosPraticos\\TP1\\CNTP\\MyListing.txt");
+            Path path3 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
             Stream<String> lines3 = Files.lines(path3);
             lines3.forEach(s -> p.imprimeText(s));
 
