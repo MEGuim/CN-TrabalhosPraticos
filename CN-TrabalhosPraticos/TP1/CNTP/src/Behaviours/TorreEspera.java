@@ -8,6 +8,9 @@ package Behaviours;
 import Agents.TorreControlo;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,17 +32,29 @@ public class TorreEspera extends CyclicBehaviour {
             if(msg.getPerformative() == ACLMessage.CONFIRM){
                 if(msg.getSender().getLocalName().matches("t.+")){
                     System.out.println(msg.getContent());
-                    //System.out.println(msg.getSender().getLocalName());
-                    this.tc.startFactArrivalMI(msg.getSender().getLocalName());
+                    try {
+                        //System.out.println(msg.getSender().getLocalName());
+                        this.tc.startFactArrivalMI(msg.getSender().getLocalName());
+                    } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 else if(msg.getSender().getLocalName().matches("o.+")){
                     System.out.println(msg.getContent());
-                    this.tc.startFactArrivalOI(msg.getSender().getLocalName());
+                    try {
+                        this.tc.startFactArrivalOI(msg.getSender().getLocalName());
+                    } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     
                 }
                 else if(msg.getSender().getLocalName().matches("p.+")){
                     System.out.println(msg.getContent());
-                    this.tc.startFactArrivalPI(msg.getSender().getLocalName());
+                    try {
+                        this.tc.startFactArrivalPI(msg.getSender().getLocalName());
+                    } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     
                 }
                         
@@ -47,15 +62,27 @@ public class TorreEspera extends CyclicBehaviour {
             else if(msg.getPerformative()== ACLMessage.INFORM){
                 if(msg.getSender().getLocalName().matches("t.+")){
                     System.out.println(msg.getContent());
-                    this.tc.revisionMI(msg.getSender().getLocalName());
+                    try {
+                        this.tc.revisionMI(msg.getSender().getLocalName());
+                    } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 else if(msg.getSender().getLocalName().matches("o.+")){
                     System.out.println(msg.getContent());
-                    this.tc.revisionOI(msg.getSender().getLocalName());
+                    try {
+                        this.tc.revisionOI(msg.getSender().getLocalName());
+                    } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 else if(msg.getSender().getLocalName().matches("p.+")){
                     System.out.println(msg.getContent());
-                    this.tc.revisionPI(msg.getSender().getLocalName());
+                    try {
+                        this.tc.revisionPI(msg.getSender().getLocalName());
+                    } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
             else{

@@ -13,6 +13,7 @@ import jade.wrapper.AgentController;
 import jade.wrapper.ContainerController;
 import jade.wrapper.StaleProxyException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -26,6 +27,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
@@ -46,6 +48,19 @@ public class TorreControlo extends GuiAgent {
     private String trevision;
     private String prevision;
     private String orevision;
+    private String action;
+    private Path caminho = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+    
+    
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+    
+    
     
     protected Principal p;
 
@@ -199,22 +214,26 @@ public class TorreControlo extends GuiAgent {
         Query q42 = new Query("list_items",new Term[] {new Atom("cbs")});
 	q42.hasSolution();
         p.imprimeText("(TorreControlo) The belief set is:");
-	Path path21 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines21 = Files.lines(path21);
+        Stream<String> lines21 = Files.lines(caminho);
         lines21.forEach(s -> p.imprimeText(s));
 										
 	Query q43 = new Query("list_items",new Term[] {new Atom("active")});
         q43.hasSolution();
 	p.imprimeText("(TorreControlo) The set of active processes is:");
-	Path path22 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines22 = Files.lines(path22);
-        lines22.forEach(s -> p.imprimeText(s));
+	String linhas7 = new String(Files.readAllBytes(caminho));
+        System.out.println(linhas7);
+        char c = linhas7.charAt(linhas7.indexOf("action")+6);
+        System.out.println(c);
+        String st = "action"+c;
+        System.out.println(st);
+        this.setAction(st);
+        System.out.println(this.getAction());
+        p.imprimeText(linhas7);
 										
 	Query q44 = new Query("list_items",new Term[] {new Atom("suspended")});
 	q44.hasSolution();
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
-	Path path23 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines23 = Files.lines(path23);
+        Stream<String> lines23 = Files.lines(caminho);
         lines23.forEach(s -> p.imprimeText(s));
     }
     
@@ -226,22 +245,26 @@ public class TorreControlo extends GuiAgent {
         Query q52 = new Query("list_items",new Term[] {new Atom("cbs")});
 	q52.hasSolution();
         p.imprimeText("(TorreControlo) The belief set is:");
-	Path path18 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines18 = Files.lines(path18);
+        Stream<String> lines18 = Files.lines(caminho);
         lines18.forEach(s -> p.imprimeText(s));
 										
 	Query q53 = new Query("list_items",new Term[] {new Atom("active")});
         q53.hasSolution();
 	p.imprimeText("(TorreControlo) The set of active processes is:");
-	Path path19 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines19 = Files.lines(path19);
-        lines19.forEach(s -> p.imprimeText(s));
+	String linhas6 = new String(Files.readAllBytes(caminho));
+        System.out.println(linhas6);
+        char c = linhas6.charAt(linhas6.indexOf("action")+6);
+        System.out.println(c);
+        String st = "action"+c;
+        System.out.println(st);
+        this.setAction(st);
+        System.out.println(this.getAction());
+        p.imprimeText(linhas6);
 										
 	Query q54 = new Query("list_items",new Term[] {new Atom("suspended")});
 	q54.hasSolution();
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
-	Path path20 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines20 = Files.lines(path20);
+        Stream<String> lines20 = Files.lines(caminho);
         lines20.forEach(s -> p.imprimeText(s));
     }
     
@@ -253,22 +276,26 @@ public class TorreControlo extends GuiAgent {
         Query q62 = new Query("list_items",new Term[] {new Atom("cbs")});
 	q62.hasSolution();
         p.imprimeText("(TorreControlo) The belief set is:");
-	Path path16 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines16 = Files.lines(path16);
+        Stream<String> lines16 = Files.lines(caminho);
         lines16.forEach(s -> p.imprimeText(s));
 										
 	Query q63 = new Query("list_items",new Term[] {new Atom("active")});
         q63.hasSolution();
 	p.imprimeText("(TorreControlo) The set of active processes is:");
-	Path path17 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines17 = Files.lines(path17);
-        lines17.forEach(s -> p.imprimeText(s));
+	String linhas5 = new String(Files.readAllBytes(caminho));
+        System.out.println(linhas5);
+        char c = linhas5.charAt(linhas5.indexOf("action")+6);
+        System.out.println(c);
+        String st = "action"+c;
+        System.out.println(st);
+        this.setAction(st);
+        System.out.println(this.getAction());
+        p.imprimeText(linhas5);
 										
 	Query q64 = new Query("list_items",new Term[] {new Atom("suspended")});
 	q64.hasSolution();
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
-	Path path18 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines18 = Files.lines(path18);
+        Stream<String> lines18 = Files.lines(caminho);
         lines18.forEach(s -> p.imprimeText(s));
     }
     
@@ -281,29 +308,32 @@ public class TorreControlo extends GuiAgent {
         Query q22 = new Query("list_items",new Term[]{new Atom("answer")});
         q22.hasSolution();
         p.imprimeText("(TorreControlo) The answer set is");
-        Path path15 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines15 = Files.lines(path15);
+        Stream<String> lines15 = Files.lines(caminho);
         lines15.forEach(s -> p.imprimeText(s));
         
         Query q23 = new Query("list_items",new Term[] {new Atom("cbs")});
 	q23.hasSolution();
 	p.imprimeText("(TorreControlo)The belief set is now:");
-	Path path14 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines14 = Files.lines(path14);
+        Stream<String> lines14 = Files.lines(caminho);
         lines14.forEach(s -> p.imprimeText(s));
 					
 	Query q24 = new Query("list_items",new Term[] {new Atom("active")});
 	q24.hasSolution();
 	p.imprimeText("(TorreControlo)The set of active processes is:");
-	Path path13 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines13 = Files.lines(path13);
-        lines13.forEach(s -> p.imprimeText(s));
+	String linhas4 = new String(Files.readAllBytes(caminho));
+        System.out.println(linhas4);
+        char c = linhas4.charAt(linhas4.indexOf("action")+6);
+        System.out.println(c);
+        String st = "action"+c;
+        System.out.println(st);
+        this.setAction(st);
+        System.out.println(this.getAction());
+        p.imprimeText(linhas4);
 					
 	Query q25 = new Query("list_items",new Term[] {new Atom("suspended")});
 	q25.hasSolution();
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
-	Path path12 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines12 = Files.lines(path12);
+        Stream<String> lines12 = Files.lines(caminho);
         lines12.forEach(s -> p.imprimeText(s));
     }
     
@@ -315,29 +345,32 @@ public class TorreControlo extends GuiAgent {
         Query q32 = new Query("list_items",new Term[]{new Atom("answer")});
         q32.hasSolution();
         p.imprimeText("(TorreControlo) The answer set is");
-        Path path11 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines11 = Files.lines(path11);
+        Stream<String> lines11 = Files.lines(caminho);
         lines11.forEach(s -> p.imprimeText(s));
         
         Query q33 = new Query("list_items",new Term[] {new Atom("cbs")});
 	q33.hasSolution();
 	p.imprimeText("(TorreControlo)The belief set is now:");
-	Path path9 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines9 = Files.lines(path9);
+        Stream<String> lines9 = Files.lines(caminho);
         lines9.forEach(s -> p.imprimeText(s));
 					
 	Query q34 = new Query("list_items",new Term[] {new Atom("active")});
 	q34.hasSolution();
 	p.imprimeText("(TorreControlo)The set of active processes is:");
-	Path path10 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines10 = Files.lines(path10);
-        lines10.forEach(s -> p.imprimeText(s));
+	String linhas3 = new String(Files.readAllBytes(caminho));
+        System.out.println(linhas3);
+        char c = linhas3.charAt(linhas3.indexOf("action")+6);
+        System.out.println(c);
+        String st = "action"+c;
+        System.out.println(st);
+        this.setAction(st);
+        System.out.println(this.getAction());
+        p.imprimeText(linhas3);
 					
 	Query q35 = new Query("list_items",new Term[] {new Atom("suspended")});
 	q35.hasSolution();
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
-	Path path8 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines8 = Files.lines(path8);
+        Stream<String> lines8 = Files.lines(caminho);
         lines8.forEach(s -> p.imprimeText(s));
     }
     
@@ -349,29 +382,32 @@ public class TorreControlo extends GuiAgent {
         Query q13 = new Query("list_items",new Term[]{new Atom("answer")});
         q13.hasSolution();
         p.imprimeText("(TorreControlo) The answer set is");
-        Path path7 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines7 = Files.lines(path7);
+        Stream<String> lines7 = Files.lines(caminho);
         lines7.forEach(s -> p.imprimeText(s));
         
         Query q14 = new Query("list_items",new Term[] {new Atom("cbs")});
 	q14.hasSolution();
 	p.imprimeText("(TorreControlo)The belief set is now:");
-	Path path6 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines6 = Files.lines(path6);
+        Stream<String> lines6 = Files.lines(caminho);
         lines6.forEach(s -> p.imprimeText(s));
 					
 	Query q15 = new Query("list_items",new Term[] {new Atom("active")});
 	q15.hasSolution();
 	p.imprimeText("(TorreControlo)The set of active processes is:");
-	Path path5 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines5 = Files.lines(path5);
-        lines5.forEach(s -> p.imprimeText(s));
+	String linhas2 = new String(Files.readAllBytes(caminho));
+        System.out.println(linhas2);
+        char c = linhas2.charAt(linhas2.indexOf("action")+6);
+        System.out.println(c);
+        String st = "action"+c;
+        System.out.println(st);
+        this.setAction(st);
+        System.out.println(this.getAction());
+        p.imprimeText(linhas2);
 					
 	Query q16 = new Query("list_items",new Term[] {new Atom("suspended")});
 	q16.hasSolution();
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
-	Path path4 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-        Stream<String> lines4 = Files.lines(path4);
+        Stream<String> lines4 = Files.lines(caminho);
         lines4.forEach(s -> p.imprimeText(s));
     }
     
@@ -382,13 +418,12 @@ public class TorreControlo extends GuiAgent {
 
             Term arg[] = {new Atom("question1")};
             
-            //Variable CBS = new Variable("csb");
+            
             Query q4 = new Query("list_items",new Term[]{new Atom("cbs")});
             q4.hasSolution();
-
-            Path path = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-            Stream<String> lines = Files.lines(path);
+            Stream<String> lines = Files.lines(caminho);
             lines.forEach(s -> p.imprimeText(s));
+            
             
             Query q5 = new Query("query",new Compound("next",arg));
             Map<String,Term> s1 = q5.oneSolution();
@@ -402,14 +437,20 @@ public class TorreControlo extends GuiAgent {
 
             Query q6 = new Query("list_items",new Term[]{new Atom("active")});
             q6.hasSolution();
-            Path path2 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-            Stream<String> lines2 = Files.lines(path2);
-            lines2.forEach(s -> p.imprimeText(s));
-
+            String linhas = new String(Files.readAllBytes(caminho));
+            System.out.println(linhas);
+            char c = linhas.charAt(linhas.indexOf("action")+6);
+            System.out.println(c);
+            String st = "action"+c;
+            System.out.println(st);
+            this.setAction(st);
+            System.out.println(this.getAction());
+            p.imprimeText(linhas);
+            
+            
             Query q7 = new Query("list_items",new Term[]{new Atom("suspended")});
             q7.hasSolution();
-            Path path3 = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-            Stream<String> lines3 = Files.lines(path3);
+            Stream<String> lines3 = Files.lines(caminho);
             lines3.forEach(s -> p.imprimeText(s));
 
         }catch(SecurityException e){
@@ -474,6 +515,34 @@ public class TorreControlo extends GuiAgent {
          
     }
 
+   public boolean compareInFile(Path path) throws FileNotFoundException{
+       String word = "";
+       boolean b = false;
+       //File file = new File("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+       try{
+           Scanner input = new Scanner(path);
+           List<String> l = new ArrayList<>();
+           while(input.hasNext()){
+               l.add(input.nextLine());
+               
+               if(l.contains("action1")){
+                   b = true;
+                   this.setAction("action1");
+               }else if(l.contains("action2")){
+                   b = true;
+                   this.setAction("action2");
+               }else if(l.contains("action3")){
+                   b = true;
+                   this.setAction("action3");
+               }
+               
+               
+           }
+       }catch(Exception error){
+           error.printStackTrace();
+       }
+       return b;
+   }
     
     
 
