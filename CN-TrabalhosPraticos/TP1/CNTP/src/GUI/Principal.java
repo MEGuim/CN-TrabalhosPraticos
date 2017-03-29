@@ -165,7 +165,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(820, 513, 100, 30);
+        jButton1.setBounds(890, 510, 100, 30);
 
         jScrollPane2.setViewportView(listaAirplanes);
 
@@ -192,7 +192,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/logo.png"))); // NOI18N
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(780, 10, 160, 140);
+        jLabel5.setBounds(850, 20, 160, 140);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Create Airplane"));
 
@@ -279,10 +279,13 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(priorilabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(met, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(factArrival, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                        .addComponent(priori, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(priori, javax.swing.GroupLayout.Alignment.LEADING, 0, 112, Short.MAX_VALUE)
                         .addComponent(ocup, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 36, Short.MAX_VALUE))
+            .addGroup(factLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(factArrival, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         factLayout.setVerticalGroup(
             factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,11 +304,11 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(priori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(factArrival)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 32, Short.MAX_VALUE))
         );
 
         getContentPane().add(fact);
-        fact.setBounds(610, 210, 170, 250);
+        fact.setBounds(610, 210, 170, 260);
 
         defa.setBorder(javax.swing.BorderFactory.createTitledBorder("Default Revision"));
 
@@ -333,16 +336,18 @@ public class Principal extends javax.swing.JFrame {
         defaLayout.setHorizontalGroup(
             defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(defaLayout.createSequentialGroup()
-                .addGroup(defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(metlabeldef, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(metdef, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ocuplabeldef)
-                        .addComponent(ocupdef, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(priorilabeldef, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(prioridef, 0, 105, Short.MAX_VALUE))
-                    .addComponent(defaultRevision))
-                .addGap(0, 57, Short.MAX_VALUE))
+                .addGroup(defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(metlabeldef, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(metdef, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ocuplabeldef)
+                    .addComponent(ocupdef, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priorilabeldef, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prioridef, 0, 105, Short.MAX_VALUE))
+                .addGap(0, 63, Short.MAX_VALUE))
+            .addGroup(defaLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(defaultRevision)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         defaLayout.setVerticalGroup(
             defaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,11 +365,11 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(prioridef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(defaultRevision)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
         );
 
         getContentPane().add(defa);
-        defa.setBounds(820, 210, 180, 250);
+        defa.setBounds(820, 210, 180, 260);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/22137-airplane-in-the-sunset-1680x1050-aircraft-wallpaper-1024x616.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -457,7 +462,7 @@ public class Principal extends javax.swing.JFrame {
             GuiEvent ge = new GuiEvent("revisao:"+ocupdef.getSelectedItem().toString(),1);
             System.out.println("revisao:"+ocupdef.getSelectedItem());
             this.myAgent.postGuiEvent(ge);
-        }else if(!priori.getSelectedItem().equals("--------")){
+        }else if(!prioridef.getSelectedItem().equals("--------")){
             GuiEvent ge = new GuiEvent("revisao:"+prioridef.getSelectedItem().toString(),1);
             System.out.println("informacao:"+prioridef.getSelectedItem());
             this.myAgent.postGuiEvent(ge);
