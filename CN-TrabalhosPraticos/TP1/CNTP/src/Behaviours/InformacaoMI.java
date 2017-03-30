@@ -18,7 +18,7 @@ import jade.lang.acl.ACLMessage;
 public class InformacaoMI extends OneShotBehaviour {
     
     private FonteInformacaoMI fi;
-    
+    private TorreControlo t;
 
     public InformacaoMI(FonteInformacaoMI fi) {
         this.fi = fi;
@@ -26,7 +26,7 @@ public class InformacaoMI extends OneShotBehaviour {
     
     @Override
     public void action(){
-       AID receiver = new AID();
+        AID receiver = new AID();
        receiver.setLocalName("torre");
        long time =  System.currentTimeMillis();
        ACLMessage msg = new ACLMessage(ACLMessage.CONFIRM);

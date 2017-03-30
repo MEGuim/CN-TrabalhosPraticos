@@ -5,18 +5,21 @@
  */
 package Agents;
 
+import Behaviours.SendAction;
 import Behaviours.TorreEspera;
 import GUI.Principal;
 import jade.gui.GuiAgent;
 import jade.gui.GuiEvent;
 import jade.wrapper.AgentController;
 import jade.wrapper.ContainerController;
+import jade.wrapper.ControllerException;
 import jade.wrapper.StaleProxyException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import static java.lang.Thread.sleep;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -27,6 +30,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,6 +54,77 @@ public class TorreControlo extends GuiAgent {
     private String orevision;
     private String action;
     private Path caminho = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+    private ContainerController container;
+    private AgentController agentcontroller;
+    private String fontet;
+    private String fonteo;
+    private String fontep;
+    private String defaulto;
+    private String defaultt;
+    private String defaultp;
+
+    public String getDefaulto() {
+        return defaulto;
+    }
+
+    public String getDefaultp() {
+        return defaultp;
+    }
+
+    public String getDefaultt() {
+        return defaultt;
+    }
+
+    public void setDefaulto(String defaulto) {
+        this.defaulto = defaulto;
+    }
+
+    public void setDefaultp(String defaultp) {
+        this.defaultp = defaultp;
+    }
+
+    public void setDefaultt(String defaultt) {
+        this.defaultt = defaultt;
+    }
+
+    public String getFonteo() {
+        return fonteo;
+    }
+
+    public String getFontep() {
+        return fontep;
+    }
+
+    public String getFontet() {
+        return fontet;
+    }
+
+    public void setFonteo(String fonteo) {
+        this.fonteo = fonteo;
+    }
+
+    public void setFontep(String fontep) {
+        this.fontep = fontep;
+    }
+
+    public void setFontet(String fontet) {
+        this.fontet = fontet;
+    }
+    
+    
+    
+    
+    
+    
+    public List<String> getAirplanes() {
+        List<String> res = new ArrayList<>();
+        for(String s: airplanes){
+            res.add(s);
+        }
+        return res;
+    }
+    
+    
     
     
     public String getAction() {
@@ -206,7 +281,7 @@ public class TorreControlo extends GuiAgent {
         return ap;
     }
     
-    public void revisionMI(String name) throws IOException{
+    public void revisionMI(String name) throws IOException, InterruptedException{
         p.imprimeText("(TorreControlo) Asserting New Default for @mi");
         Query q41 = new Query("default_arrival",new Term[]{new Atom("t"),new Atom("mi"),new Atom("in_set"),new Atom(name)});
         q41.hasSolution();
@@ -235,9 +310,33 @@ public class TorreControlo extends GuiAgent {
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
         Stream<String> lines23 = Files.lines(caminho);
         lines23.forEach(s -> p.imprimeText(s));
+        
+        p.imprimeText("(TorreControlo) Action is");
+        p.imprimeText(this.getAction());
+        /*
+        if(this.getAction().equals("action1")){
+            List<String> so = this.getAirplanes();
+            if(!so.isEmpty()){
+                for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action1").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }else if(this.getAction().equals("action3")){
+                 for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action3").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }
+            
+            
+        }*/
     }
     
-    public void revisionPI(String name) throws IOException{
+    public void revisionPI(String name) throws IOException, InterruptedException{
         p.imprimeText("(TorreControlo) Asserting New Default for @pi");
         Query q51 = new Query("default_arrival",new Term[]{new Atom("p"),new Atom("pi"),new Atom("in_set"),new Atom(name)});
         q51.hasSolution();
@@ -266,9 +365,34 @@ public class TorreControlo extends GuiAgent {
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
         Stream<String> lines20 = Files.lines(caminho);
         lines20.forEach(s -> p.imprimeText(s));
+        p.imprimeText("(TorreControlo) Action is");
+        p.imprimeText(this.getAction());
+        
+        /*
+        if(this.getAction().equals("action1")){
+            List<String> so = this.getAirplanes();
+            if(!so.isEmpty()){
+                for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action1").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }else if(this.getAction().equals("action3")){
+                 for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action3").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }
+            
+            
+        }*/
+        
     }
     
-    public void revisionOI(String name) throws IOException{
+    public void revisionOI(String name) throws IOException, InterruptedException{
         p.imprimeText("(TorreControlo) Asserting New Default for @oi");
         Query q61 = new Query("default_arrival",new Term[]{new Atom("o"),new Atom("oi"),new Atom("in_set"),new Atom(name)});
         q61.hasSolution();
@@ -297,10 +421,34 @@ public class TorreControlo extends GuiAgent {
 	p.imprimeText("(TorreControlo) The set of suspended processes is:");
         Stream<String> lines18 = Files.lines(caminho);
         lines18.forEach(s -> p.imprimeText(s));
+        p.imprimeText("(TorreControlo) Action is");
+        p.imprimeText(this.getAction());
+        /*
+        if(this.getAction().equals("action1")){
+            List<String> so = this.getAirplanes();
+            if(!so.isEmpty()){
+                for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action1").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }else if(this.getAction().equals("action3")){
+                 for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action3").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }
+            
+            
+        }*/
+        
     }
     
     
-    public void startFactArrivalPI(String name) throws IOException{
+    public void startFactArrivalPI(String name) throws IOException, InterruptedException{
         p.imprimeText("(TorreControlo) Asserting Answer for @pi");
         Query q21 = new Query("answer_arrival",new Term[]{new Atom("p"),new Atom("pi"),new Atom("in_set"),new Atom(name)});
         q21.hasSolution();
@@ -335,9 +483,33 @@ public class TorreControlo extends GuiAgent {
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
         Stream<String> lines12 = Files.lines(caminho);
         lines12.forEach(s -> p.imprimeText(s));
+        p.imprimeText("(TorreControlo) Action is");
+        p.imprimeText(this.getAction());
+        /*
+        if(this.getAction().equals("action1")){
+            List<String> so = this.getAirplanes();
+            if(!so.isEmpty()){
+                for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action1").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }else if(this.getAction().equals("action3")){
+                 for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action3").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }
+            
+            
+        }*/
+        
     }
     
-    public void startFactArrivalOI(String name) throws IOException{
+    public void startFactArrivalOI(String name) throws IOException, InterruptedException{
         p.imprimeText("(TorreControlo) Asserting Answer for @oi");
         Query q31 = new Query("answer_arrival",new Term[]{new Atom("o"),new Atom("oi"),new Atom("in_set"),new Atom(name)});
         q31.hasSolution();
@@ -372,9 +544,36 @@ public class TorreControlo extends GuiAgent {
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
         Stream<String> lines8 = Files.lines(caminho);
         lines8.forEach(s -> p.imprimeText(s));
+        p.imprimeText("(TorreControlo) Action is");
+        p.imprimeText(this.getAction());
+        
+        
+       
+        /*
+        if(this.getAction().equals("action1")){
+            List<String> so = this.getAirplanes();
+            if(!so.isEmpty()){
+                for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action1").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }else if(this.getAction().equals("action3")){
+                 for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action3").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }
+            
+            
+        }*/
+        
     }
-    
-    public void startFactArrivalMI(String name) throws IOException{
+   
+    public void startFactArrivalMI(String name) throws IOException, InterruptedException{
         p.imprimeText("(TorreControlo) Asserting Answer for @mi");
         Query q12 = new Query("answer_arrival",new Term[]{new Atom("t"),new Atom("mi"),new Atom("in_set"),new Atom(name)});
         q12.hasSolution();
@@ -409,7 +608,33 @@ public class TorreControlo extends GuiAgent {
 	p.imprimeText("(TorreControlo)The set of suspended processes is:");
         Stream<String> lines4 = Files.lines(caminho);
         lines4.forEach(s -> p.imprimeText(s));
+        p.imprimeText("(TorreControlo) Action is");
+        p.imprimeText(this.getAction());
+        /*
+        if(this.getAction().equals("action1")){
+            List<String> so = this.getAirplanes();
+            if(!so.isEmpty()){
+                for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action1").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }else if(this.getAction().equals("action3")){
+                 for(int i = 0; i < so.size();i++){
+                    new SendAction(this,"action3").action();
+                    so.remove(i);
+                    p.povoaAvioes();
+                    sleep(1000);
+                }
+            }
+            
+            
+        }*/
+        
     }
+    
+    
     
     public void startProlog(){
        
@@ -452,6 +677,17 @@ public class TorreControlo extends GuiAgent {
             q7.hasSolution();
             Stream<String> lines3 = Files.lines(caminho);
             lines3.forEach(s -> p.imprimeText(s));
+            
+            p.imprimeText("(TorreControlo) Action is");
+            p.imprimeText(this.getAction());
+            
+            /*if((this.getAction().equals("action1"))||(this.getAction().equals("action3"))){
+                List<String> rem = this.getAirplanes();
+                for(String s: rem){
+                    rem.remove(s);
+                }
+                p.povoaAvioes();
+            }*/
 
         }catch(SecurityException e){
             e.printStackTrace();
@@ -496,7 +732,14 @@ public class TorreControlo extends GuiAgent {
         AgentController ac = cc.createNewAgent(nome, DefaultRevisionPI.class.getName(), null);
         ac.start();
     }
+    /*
+    public void deleteAgent(String nome) throws ControllerException{
+            ContainerController cc = getContainerController();
+            AgentController ac = cc.getAgent(nome);
+            ac.kill();
+        }
     
+    */
     private void createNewAgent(String nome) throws StaleProxyException{
         
         if(!airplanes.contains(nome)){
@@ -514,35 +757,6 @@ public class TorreControlo extends GuiAgent {
         
          
     }
-
-   public boolean compareInFile(Path path) throws FileNotFoundException{
-       String word = "";
-       boolean b = false;
-       //File file = new File("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-       try{
-           Scanner input = new Scanner(path);
-           List<String> l = new ArrayList<>();
-           while(input.hasNext()){
-               l.add(input.nextLine());
-               
-               if(l.contains("action1")){
-                   b = true;
-                   this.setAction("action1");
-               }else if(l.contains("action2")){
-                   b = true;
-                   this.setAction("action2");
-               }else if(l.contains("action3")){
-                   b = true;
-                   this.setAction("action3");
-               }
-               
-               
-           }
-       }catch(Exception error){
-           error.printStackTrace();
-       }
-       return b;
-   }
     
     
 

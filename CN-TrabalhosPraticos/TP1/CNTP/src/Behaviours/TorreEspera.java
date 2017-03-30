@@ -37,6 +37,8 @@ public class TorreEspera extends CyclicBehaviour {
                         this.tc.startFactArrivalMI(msg.getSender().getLocalName());
                     } catch (IOException ex) {
                         Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 else if(msg.getSender().getLocalName().matches("o.+")){
@@ -44,6 +46,8 @@ public class TorreEspera extends CyclicBehaviour {
                     try {
                         this.tc.startFactArrivalOI(msg.getSender().getLocalName());
                     } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
                         Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
@@ -53,6 +57,8 @@ public class TorreEspera extends CyclicBehaviour {
                     try {
                         this.tc.startFactArrivalPI(msg.getSender().getLocalName());
                     } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
                         Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
@@ -66,6 +72,8 @@ public class TorreEspera extends CyclicBehaviour {
                         this.tc.revisionMI(msg.getSender().getLocalName());
                     } catch (IOException ex) {
                         Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 else if(msg.getSender().getLocalName().matches("o.+")){
@@ -74,6 +82,8 @@ public class TorreEspera extends CyclicBehaviour {
                         this.tc.revisionOI(msg.getSender().getLocalName());
                     } catch (IOException ex) {
                         Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 else if(msg.getSender().getLocalName().matches("p.+")){
@@ -81,6 +91,8 @@ public class TorreEspera extends CyclicBehaviour {
                     try {
                         this.tc.revisionPI(msg.getSender().getLocalName());
                     } catch (IOException ex) {
+                        Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
                         Logger.getLogger(TorreEspera.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -93,6 +105,18 @@ public class TorreEspera extends CyclicBehaviour {
                     rsp.setPerformative(ACLMessage.INFORM);
                     this.tc.send(rsp);
                     this.tc.startProlog();
+                    if(this.tc.getAction().equals("action1")){
+                        String s1 = this.tc.getAction();
+                        new SendAction(this.tc,s1).action();
+                    }
+                    else if(this.tc.getAction().equals("action2")){
+                        String s2 = this.tc.getAction();
+                        new SendAction(this.tc,s2).action();
+                    }
+                    else if(this.tc.getAction().equals("action3")){
+                        String s3 = this.tc.getAction();
+                        new SendAction(this.tc,s3).action();
+                    }
                 }
                 //this.tc.send(rsp);
                 //this.tc.startProlog();

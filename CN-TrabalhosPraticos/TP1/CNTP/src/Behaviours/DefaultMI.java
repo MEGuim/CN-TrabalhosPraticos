@@ -7,6 +7,7 @@ package Behaviours;
 
 
 import Agents.DefaultRevisionMI;
+import Agents.TorreControlo;
 import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -18,6 +19,7 @@ import jade.lang.acl.ACLMessage;
 public class DefaultMI extends OneShotBehaviour {
     
     private DefaultRevisionMI revm;
+    private TorreControlo t;
 
     public DefaultMI(DefaultRevisionMI mi) {
         this.revm = mi;

@@ -6,6 +6,7 @@
 package Behaviours;
 
 import Agents.DefaultRevisionPI;
+import Agents.TorreControlo;
 import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -17,6 +18,7 @@ import jade.lang.acl.ACLMessage;
 public class DefaultPI extends OneShotBehaviour {
     
     private DefaultRevisionPI revp;
+    private TorreControlo t;
 
     public DefaultPI(DefaultRevisionPI pi) {
         this.revp = pi;

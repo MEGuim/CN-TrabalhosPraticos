@@ -6,6 +6,7 @@
 package Behaviours;
 
 import Agents.FonteInformacaoPI;
+import Agents.TorreControlo;
 import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -17,6 +18,7 @@ import jade.lang.acl.ACLMessage;
 public class InformacaoPI extends OneShotBehaviour{
     
     private FonteInformacaoPI pi;
+    private TorreControlo t;
 
     public InformacaoPI(FonteInformacaoPI pi) {
         this.pi = pi;

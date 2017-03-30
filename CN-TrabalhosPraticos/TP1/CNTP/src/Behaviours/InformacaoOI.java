@@ -6,6 +6,7 @@
 package Behaviours;
 
 import Agents.FonteInformacaoOI;
+import Agents.TorreControlo;
 import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -17,6 +18,7 @@ import jade.lang.acl.ACLMessage;
 public class InformacaoOI extends OneShotBehaviour {
     
     private FonteInformacaoOI oi;
+    private TorreControlo t;
 
     public InformacaoOI(FonteInformacaoOI oi) {
         this.oi = oi;

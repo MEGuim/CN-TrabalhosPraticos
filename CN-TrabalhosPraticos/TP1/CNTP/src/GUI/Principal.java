@@ -89,6 +89,15 @@ public class Principal extends javax.swing.JFrame {
             this.speculative.append("\n");
         }
     }
+    /*
+    public void atualizaAvioes(){
+        List<String> e = this.myAgent.getAirplanes();
+        DefaultListModel ls = new DefaultListModel();
+        for(String s1: e){
+            ls.addElement(s1);
+        }
+        this.listaAirplanes.setModel(ls);
+    }*/
     
     public void povoaAvioes(){
         ArrayList<String> ec = (ArrayList<String>) myAgent.daAviao(airp);
@@ -279,13 +288,10 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(priorilabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(met, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(priori, javax.swing.GroupLayout.Alignment.LEADING, 0, 112, Short.MAX_VALUE)
+                        .addComponent(factArrival, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                        .addComponent(priori, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ocup, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 36, Short.MAX_VALUE))
-            .addGroup(factLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(factArrival, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         factLayout.setVerticalGroup(
             factLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -6,11 +6,13 @@
 package Agents;
 
 import Behaviours.AirplaneName;
+import Behaviours.WaitAction;
 import jade.core.Agent;
 import jade.domain.DFService;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.domain.FIPAException;
+
 
 
 /**
@@ -23,34 +25,36 @@ public class Airplane extends Agent {
     
     protected void setup(){
         super.setup();
-        
+        /*
         DFAgentDescription dfd = new DFAgentDescription();
         dfd.setName(getAID());
         ServiceDescription sd = new ServiceDescription();
         sd.setName(getLocalName());
         sd.setType("airplanes");
         dfd.addServices(sd);
-        
-        try{
-            DFService.register(this, dfd);
+        */
+        //try{
+          //  DFService.register(this, dfd);
             System.out.println("Agente[" + this.getLocalName() + "] a iniciar...");
-        }catch(FIPAException fe){
-            fe.printStackTrace();
-        }
+        //}catch(FIPAException fe){
+          //  fe.printStackTrace();
+        //}
             
         this.addBehaviour(new AirplaneName(this));
+        this.addBehaviour(new WaitAction(this));
         
     }
     
     @Override
-    protected void takeDown(){
+    public void takeDown(){
         super.takeDown();
-        try{
+        System.out.println("Agente [" + this.getLocalName() + "] a terminar");
+        /*try{
             DFService.deregister(this);
             System.out.println("Agente [" + this.getLocalName() + "] a terminar");
         }catch(Exception e){
-            e.printStackTrace();
-        }
+           e.printStackTrace();
+        }*/
     }
     
     

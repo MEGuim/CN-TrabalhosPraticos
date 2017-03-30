@@ -7,6 +7,7 @@ package Behaviours;
 
 
 import Agents.DefaultRevisionOI;
+import Agents.TorreControlo;
 import jade.core.AID;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -18,7 +19,8 @@ import jade.lang.acl.ACLMessage;
 public class DefaultOI extends OneShotBehaviour{
     
     private DefaultRevisionOI revo;
-
+    private TorreControlo t;
+    
     public DefaultOI(DefaultRevisionOI oi) {
         this.revo = oi;
     }
