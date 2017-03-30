@@ -99,13 +99,17 @@ public class Principal extends javax.swing.JFrame {
         this.listaAirplanes.setModel(ls);
     }*/
     
-    public void povoaAvioes(){
+    public ArrayList povoaAvioes(){
         ArrayList<String> ec = (ArrayList<String>) myAgent.daAviao(airp);
         DefaultListModel list =  new DefaultListModel();
         for(String s: ec){
             list.addElement(s);
         }
         this.listaAirplanes.setModel(list);
+        System.out.println(myAgent.airplanes);
+
+        return ec;
+        
     }
     
     public void avisa(){

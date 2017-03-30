@@ -48,12 +48,12 @@ import org.jpl7.Variable;
  */
 public class TorreControlo extends GuiAgent {
     
-    private List<String> airplanes = new ArrayList<>();
+    public List<String> airplanes = new ArrayList<>();
     private String trevision;
     private String prevision;
     private String orevision;
     private String action;
-    private Path caminho = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
+    private Path caminho = Paths.get("C:/Users/Alexandre Mirra/Documents/NetBeansProjects/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
     private ContainerController container;
     private AgentController agentcontroller;
     private String fontet;
@@ -62,6 +62,7 @@ public class TorreControlo extends GuiAgent {
     private String defaulto;
     private String defaultt;
     private String defaultp;
+    //private Boolean apaga = false;
 
     public String getDefaulto() {
         return defaulto;
@@ -174,7 +175,7 @@ public class TorreControlo extends GuiAgent {
        p.setVisible(true);
        super.setup();
        p.imprimeText("(TorreControlo) Initialize the Speculative Computation");
-       Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/PEDRO/Desktop/CN/TP1/git/QuaseFinal/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
+       Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/Alexandre Mirra/Documents/NetBeansProjects/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
        //System.out.println(q1.hasSolution());
        
        q1.hasSolution();
@@ -749,6 +750,8 @@ public class TorreControlo extends GuiAgent {
             AgentController ac = cc.createNewAgent(nome, Airplane.class.getName(), null);
             ac.start();
             p.avisaPositivo(nome);
+            System.out.println(airplanes.size());
+            airplanes.
         }
        
         else{
@@ -756,6 +759,15 @@ public class TorreControlo extends GuiAgent {
         }
         
          
+    }
+    
+    public void removeAviao (Boolean a,String nome){
+        if (a==true)
+        {
+         this.airplanes.remove(nome);
+          
+        }
+        
     }
     
     

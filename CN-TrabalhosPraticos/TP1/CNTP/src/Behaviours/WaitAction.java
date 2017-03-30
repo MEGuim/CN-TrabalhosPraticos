@@ -43,10 +43,12 @@ public class WaitAction extends CyclicBehaviour{
     
     @Override
     public void action(){
+        Boolean b = false;
         ACLMessage msg = this.a.receive();
         
         if(msg!=null){
             if(msg.getContent().equals("action1")){
+                b = true;
                 this.setAc("Descolas");
                 System.out.println(this.a.getLocalName() + " recebi " + msg.getContent());
                 //try {
@@ -58,15 +60,21 @@ public class WaitAction extends CyclicBehaviour{
                     //this.tc.getAirplanes().remove(a.getLocalName());
                     //this.tc.deleteAgent(this.a.getLocalName());
                 System.out.println("Aviao " +  a.getLocalName() + " vai " +  this.getAc());
-                //this.a.takeDown();
+                //this.tc.removeAviao(b, this.a.getLocalName());
+                this.a.takeDown();
+                this.a.doDelete();
                 
             }else if(msg.getContent().equals("action2")){
                 this.setAc("Esperas");
                 System.out.println(this.a.getLocalName() + " recebi " + msg.getContent());
             }else if(msg.getContent().equals("action3")){
+                b = true;
                 this.setAc("Cancelar");
                 System.out.println(this.a.getLocalName() + "recebi" + msg.getContent());
+                //this.tc.removeAviao(b, this.a.getLocalName());
                 this.a.takeDown();
+                this.a.doDelete();
+                
             }
             
             

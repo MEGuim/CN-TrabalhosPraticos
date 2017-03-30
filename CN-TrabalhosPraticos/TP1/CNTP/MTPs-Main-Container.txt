@@ -1,1 +1,1 @@
-http://192.168.100.151:7778/acc
+http://DESKTOP-7U53GBT.lan:7778/acc

@@ -23,6 +23,7 @@ public class FonteInformacaoPI extends Agent{
     @Override
     public void takeDown(){
         super.takeDown();
+        super.doDelete();
         System.out.println("Fonte de Informação @pi a terminar...");
     }
     

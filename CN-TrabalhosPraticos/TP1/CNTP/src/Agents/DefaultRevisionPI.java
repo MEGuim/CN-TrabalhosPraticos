@@ -22,6 +22,7 @@ public class DefaultRevisionPI extends Agent {
     
     public void takeDown(){
         super.takeDown();
+        super.doDelete();
         System.out.println("Agente Default Revision @pi a terminar...");
     }
 }

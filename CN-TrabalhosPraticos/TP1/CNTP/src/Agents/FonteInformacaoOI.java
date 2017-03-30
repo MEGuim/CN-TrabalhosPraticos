@@ -40,6 +40,7 @@ public class FonteInformacaoOI extends Agent {
     @Override
     public void takeDown(){
         super.takeDown();
+        super.doDelete();
         /*try{
             DFService.deregister(this);
             System.out.println("Agente [" + this.getLocalName() + "] a terminar");
