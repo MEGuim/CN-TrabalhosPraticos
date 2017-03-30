@@ -751,7 +751,7 @@ public class TorreControlo extends GuiAgent {
             ac.start();
             p.avisaPositivo(nome);
             System.out.println(airplanes.size());
-            airplanes.
+         
         }
        
         else{
