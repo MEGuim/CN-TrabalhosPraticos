@@ -21,6 +21,7 @@ import jade.domain.FIPAException;
  */
 public class Airplane extends Agent {
     
+    private TorreControlo tc;
     
     
     protected void setup(){
@@ -58,7 +59,18 @@ public class Airplane extends Agent {
     }
     
     
-    
+    /*public void removeAviao (String nome){
+        System.out.println(this.tc.getAirplanes());
+         for(int i=0;i<this.tc.airplanes.size();i++){
+             System.out.println(this.tc.airplanes.size());
+             System.out.println(this.tc.airplanes.get(0));
+             if(this.tc.airplanes.get(0).equals(nome)){
+                 this.tc.airplanes.remove(nome);
+             }
+         }
+         
+         System.out.println(this.tc.getAirplanes());
+    }*/
     
     
     

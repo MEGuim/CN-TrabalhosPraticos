@@ -106,8 +106,15 @@ public class TorreEspera extends CyclicBehaviour {
                     this.tc.send(rsp);
                     this.tc.startProlog();
                     if(this.tc.getAction().equals("action1")){
-                        String s1 = this.tc.getAction();
-                        new SendAction(this.tc,s1).action();
+                    String s1 = this.tc.getAction();
+                    if(!this.tc.getAirplanes().isEmpty()){
+                        for(int i=0;i<=this.tc.getAirplanes().size();i++){
+                            System.out.println(i);
+                            System.out.println(this.tc.getAirplanes().size());
+                            new SendAction(this.tc,s1).action();
+                        }
+                    }
+                        
                     }
                     else if(this.tc.getAction().equals("action2")){
                         String s2 = this.tc.getAction();

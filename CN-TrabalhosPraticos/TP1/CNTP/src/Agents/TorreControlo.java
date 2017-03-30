@@ -53,9 +53,7 @@ public class TorreControlo extends GuiAgent {
     private String prevision;
     private String orevision;
     private String action;
-    private Path caminho = Paths.get("C:/Users/Alexandre Mirra/Documents/NetBeansProjects/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
-    private ContainerController container;
-    private AgentController agentcontroller;
+    private Path caminho = Paths.get("C:/Users/PEDRO/Desktop/CN/TP1/git/FaltaPouco/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/MyListing.txt");
     private String fontet;
     private String fonteo;
     private String fontep;
@@ -63,6 +61,17 @@ public class TorreControlo extends GuiAgent {
     private String defaultt;
     private String defaultp;
     //private Boolean apaga = false;
+
+    
+    public TorreControlo(){
+        this.airplanes = new ArrayList<String>();
+    }
+
+    public void setAirplanes(List<String> airplanes) {
+        this.airplanes = airplanes;
+    }
+    
+    
 
     public String getDefaulto() {
         return defaulto;
@@ -175,7 +184,7 @@ public class TorreControlo extends GuiAgent {
        p.setVisible(true);
        super.setup();
        p.imprimeText("(TorreControlo) Initialize the Speculative Computation");
-       Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/Alexandre Mirra/Documents/NetBeansProjects/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
+       Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/PEDRO/Desktop/CN/TP1/git/FaltaPouco/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
        //System.out.println(q1.hasSolution());
        
        q1.hasSolution();
@@ -314,27 +323,7 @@ public class TorreControlo extends GuiAgent {
         
         p.imprimeText("(TorreControlo) Action is");
         p.imprimeText(this.getAction());
-        /*
-        if(this.getAction().equals("action1")){
-            List<String> so = this.getAirplanes();
-            if(!so.isEmpty()){
-                for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action1").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }else if(this.getAction().equals("action3")){
-                 for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action3").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }
-            
-            
-        }*/
+       
     }
     
     public void revisionPI(String name) throws IOException, InterruptedException{
@@ -368,29 +357,7 @@ public class TorreControlo extends GuiAgent {
         lines20.forEach(s -> p.imprimeText(s));
         p.imprimeText("(TorreControlo) Action is");
         p.imprimeText(this.getAction());
-        
-        /*
-        if(this.getAction().equals("action1")){
-            List<String> so = this.getAirplanes();
-            if(!so.isEmpty()){
-                for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action1").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }else if(this.getAction().equals("action3")){
-                 for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action3").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }
-            
-            
-        }*/
-        
+                
     }
     
     public void revisionOI(String name) throws IOException, InterruptedException{
@@ -424,27 +391,7 @@ public class TorreControlo extends GuiAgent {
         lines18.forEach(s -> p.imprimeText(s));
         p.imprimeText("(TorreControlo) Action is");
         p.imprimeText(this.getAction());
-        /*
-        if(this.getAction().equals("action1")){
-            List<String> so = this.getAirplanes();
-            if(!so.isEmpty()){
-                for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action1").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }else if(this.getAction().equals("action3")){
-                 for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action3").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }
-            
-            
-        }*/
+       
         
     }
     
@@ -486,27 +433,7 @@ public class TorreControlo extends GuiAgent {
         lines12.forEach(s -> p.imprimeText(s));
         p.imprimeText("(TorreControlo) Action is");
         p.imprimeText(this.getAction());
-        /*
-        if(this.getAction().equals("action1")){
-            List<String> so = this.getAirplanes();
-            if(!so.isEmpty()){
-                for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action1").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }else if(this.getAction().equals("action3")){
-                 for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action3").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }
-            
-            
-        }*/
+        
         
     }
     
@@ -548,29 +475,7 @@ public class TorreControlo extends GuiAgent {
         p.imprimeText("(TorreControlo) Action is");
         p.imprimeText(this.getAction());
         
-        
-       
-        /*
-        if(this.getAction().equals("action1")){
-            List<String> so = this.getAirplanes();
-            if(!so.isEmpty()){
-                for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action1").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }else if(this.getAction().equals("action3")){
-                 for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action3").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }
-            
-            
-        }*/
+      
         
     }
    
@@ -611,27 +516,7 @@ public class TorreControlo extends GuiAgent {
         lines4.forEach(s -> p.imprimeText(s));
         p.imprimeText("(TorreControlo) Action is");
         p.imprimeText(this.getAction());
-        /*
-        if(this.getAction().equals("action1")){
-            List<String> so = this.getAirplanes();
-            if(!so.isEmpty()){
-                for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action1").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }else if(this.getAction().equals("action3")){
-                 for(int i = 0; i < so.size();i++){
-                    new SendAction(this,"action3").action();
-                    so.remove(i);
-                    p.povoaAvioes();
-                    sleep(1000);
-                }
-            }
-            
-            
-        }*/
+        
         
     }
     
@@ -682,13 +567,6 @@ public class TorreControlo extends GuiAgent {
             p.imprimeText("(TorreControlo) Action is");
             p.imprimeText(this.getAction());
             
-            /*if((this.getAction().equals("action1"))||(this.getAction().equals("action3"))){
-                List<String> rem = this.getAirplanes();
-                for(String s: rem){
-                    rem.remove(s);
-                }
-                p.povoaAvioes();
-            }*/
 
         }catch(SecurityException e){
             e.printStackTrace();
@@ -733,14 +611,7 @@ public class TorreControlo extends GuiAgent {
         AgentController ac = cc.createNewAgent(nome, DefaultRevisionPI.class.getName(), null);
         ac.start();
     }
-    /*
-    public void deleteAgent(String nome) throws ControllerException{
-            ContainerController cc = getContainerController();
-            AgentController ac = cc.getAgent(nome);
-            ac.kill();
-        }
-    
-    */
+   
     private void createNewAgent(String nome) throws StaleProxyException{
         
         if(!airplanes.contains(nome)){
@@ -761,17 +632,11 @@ public class TorreControlo extends GuiAgent {
          
     }
     
-    public void removeAviao (Boolean a,String nome){
-        if (a==true)
-        {
-         this.airplanes.remove(nome);
-          
-        }
         
-    }
+}
     
     
 
     
     
-}
+

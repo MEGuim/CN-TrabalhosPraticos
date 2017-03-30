@@ -10,11 +10,7 @@ import Agents.TorreControlo;
 import GUI.Principal;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
-import jade.wrapper.ControllerException;
-import static java.lang.Thread.sleep;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -41,15 +37,31 @@ public class WaitAction extends CyclicBehaviour{
         this.a = a;
     }
     
+    
+    /*public void removeAviao (String nome){
+         TorreControlo tc = new TorreControlo();
+         System.out.println(tc.getAirplanes());
+         for(int i=0;i<tc.airplanes.size();i++){
+             System.out.println(tc.airplanes.size());
+             System.out.println(tc.airplanes.get(0));
+             if(tc.airplanes.get(0).equals(nome)){
+                 tc.airplanes.remove(nome);
+             }
+             
+         }
+         
+         System.out.println(tc.getAirplanes()); 
+    }*/
+    
     @Override
     public void action(){
-        Boolean b = false;
+        boolean b = false;
         ACLMessage msg = this.a.receive();
         
         if(msg!=null){
             if(msg.getContent().equals("action1")){
                 b = true;
-                this.setAc("Descolas");
+                this.setAc("Descolar");
                 System.out.println(this.a.getLocalName() + " recebi " + msg.getContent());
                 //try {
                     /*List<String> rem = this.tc.getAirplanes();
@@ -60,18 +72,23 @@ public class WaitAction extends CyclicBehaviour{
                     //this.tc.getAirplanes().remove(a.getLocalName());
                     //this.tc.deleteAgent(this.a.getLocalName());
                 System.out.println("Aviao " +  a.getLocalName() + " vai " +  this.getAc());
+                //String s = this.a.getLocalName();
                 //this.tc.removeAviao(b, this.a.getLocalName());
+                //this.a.removeAviao(s);
                 this.a.takeDown();
                 this.a.doDelete();
+                //this.a.removeAviao(s);
                 
             }else if(msg.getContent().equals("action2")){
-                this.setAc("Esperas");
+                this.setAc("Esperar");
                 System.out.println(this.a.getLocalName() + " recebi " + msg.getContent());
+                System.out.println("Aviao " +  a.getLocalName() + " vai " +  this.getAc());
             }else if(msg.getContent().equals("action3")){
                 b = true;
-                this.setAc("Cancelar");
+                this.setAc("Cancelado");
                 System.out.println(this.a.getLocalName() + "recebi" + msg.getContent());
                 //this.tc.removeAviao(b, this.a.getLocalName());
+                System.out.println("Aviao " +  a.getLocalName() + " vai ser " +  this.getAc());
                 this.a.takeDown();
                 this.a.doDelete();
                 
