@@ -89,15 +89,7 @@ public class Principal extends javax.swing.JFrame {
             this.speculative.append("\n");
         }
     }
-    /*
-    public void atualizaAvioes(){
-        List<String> e = this.myAgent.getAirplanes();
-        DefaultListModel ls = new DefaultListModel();
-        for(String s1: e){
-            ls.addElement(s1);
-        }
-        this.listaAirplanes.setModel(ls);
-    }*/
+    
     
     public ArrayList povoaAvioes(){
         ArrayList<String> ec = (ArrayList<String>) myAgent.daAviao(airp);
@@ -406,15 +398,7 @@ public class Principal extends javax.swing.JFrame {
             this.ocup.setEnabled(true);
             this.priori.setEnabled(true);
             this.factArrival.setEnabled(true);
-            //default revision
-            this.defa.setEnabled(true);
-            this.metlabeldef.setEnabled(true);
-            this.ocuplabeldef.setEnabled(true);
-            this.priorilabeldef.setEnabled(true);
-            this.metdef.setEnabled(true);
-            this.ocupdef.setEnabled(true);
-            this.prioridef.setEnabled(true);
-            this.defaultRevision.setEnabled(true);
+            
         //}else{
           //  JOptionPane.showMessageDialog(null, "Não inseriu nome!");
         //}
@@ -455,6 +439,15 @@ public class Principal extends javax.swing.JFrame {
         }else if((met.getSelectedItem().equals("--------"))||(ocup.getSelectedItem().equals("--------"))||(priori.getSelectedItem().equals("--------"))){
             JOptionPane.showMessageDialog(null, "Selecione apenas uma fonte de informação para a chegada de facto");
         }
+        //default revision
+            this.defa.setEnabled(true);
+            this.metlabeldef.setEnabled(true);
+            this.ocuplabeldef.setEnabled(true);
+            this.priorilabeldef.setEnabled(true);
+            this.metdef.setEnabled(true);
+            this.ocupdef.setEnabled(true);
+            this.prioridef.setEnabled(true);
+            this.defaultRevision.setEnabled(true);
     }//GEN-LAST:event_factArrivalActionPerformed
 
     

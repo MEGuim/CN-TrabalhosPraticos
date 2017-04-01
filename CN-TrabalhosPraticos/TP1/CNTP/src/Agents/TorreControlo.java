@@ -183,7 +183,15 @@ public class TorreControlo extends GuiAgent {
        System.out.println("Torre de Controlo a iniciar...");
        p.setVisible(true);
        super.setup();
-       p.imprimeText("(TorreControlo) Initialize the Speculative Computation");
+       this.initialize();
+       this.addBehaviour(new TorreEspera(this));
+       
+       
+       
+    }
+    
+    public void initialize(){
+        p.imprimeText("(TorreControlo) Initialize the Speculative Computation");
        Query q1 = new Query("consult",new Term[]{new Atom("C:/Users/PEDRO/Desktop/CN/TP1/git/FaltaPouco/CN-TrabalhosPraticos/CN-TrabalhosPraticos/TP1/CNTP/spc_componentv3.pl")});
        //System.out.println(q1.hasSolution());
        
@@ -199,10 +207,6 @@ public class TorreControlo extends GuiAgent {
         q3.open();
         q3.getSolution();
         q3.close();
-       this.addBehaviour(new TorreEspera(this));
-       
-       
-       
     }
     
      @Override
